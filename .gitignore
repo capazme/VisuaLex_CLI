@@ -1,0 +1,6 @@
+download
+__pycache__
+test.py
+\* .log
+.DS_Store
+.venv
