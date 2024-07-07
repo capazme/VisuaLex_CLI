@@ -64,3 +64,207 @@ requests.exceptions.MissingSchema: Invalid URL '(None, None)': No scheme supplie
 2024-07-07 15:38:55,404 INFO Normalized act type found: legge
 2024-07-07 15:38:55,404 INFO Starting generate_urn with act_type: legge, date: 1990, act_number: 241, article: None, extension: None, version: None, version_date: None, urn_flag: False
 2024-07-07 15:38:55,404 INFO Starting complete_date with act_type: legge, date: 1990, act_number: 241
+2024-07-07 15:39:02,576 INFO Search criteria: legge 241 1990
+2024-07-07 15:39:06,944 INFO Element text found: LEGGE 7 Agosto 1990, n. 241
+2024-07-07 15:39:06,944 INFO Extracting date from denomination: LEGGE 7 Agosto 1990, n. 241
+2024-07-07 15:39:06,945 INFO Extracted date: 7 Agosto 1990
+2024-07-07 15:39:06,945 INFO Completed date: 7 Agosto 1990
+2024-07-07 15:39:06,946 INFO Parsing date: 7 Agosto 1990
+2024-07-07 15:39:06,946 INFO Formatted date: 1990-08-07
+2024-07-07 15:39:06,946 INFO Formatted date: 1990-08-07
+2024-07-07 15:39:06,946 INFO Generated URN: legge:1990-08-07;241
+2024-07-07 15:39:06,947 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1990-08-07;241
+2024-07-07 15:39:08,552 INFO Norma initialized: legge 1990, n. 241
+2024-07-07 15:39:08,552 INFO Starting generate_urn with act_type: legge, date: 1990, act_number: 241, article: 1, extension: None, version: vigente, version_date: , urn_flag: True
+2024-07-07 15:39:08,553 INFO Formatted date: 1990-08-07
+2024-07-07 15:39:08,553 INFO Generated URN: legge:1990-08-07;241
+2024-07-07 15:39:08,553 INFO Article part of URN: legge:1990-08-07;241~art1
+2024-07-07 15:39:08,553 INFO Version part of URN: legge:1990-08-07;241~art1!vig=
+2024-07-07 15:39:08,554 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1990-08-07;241~art1!vig=
+2024-07-07 15:39:08,554 INFO Initializing Norma with tipo_atto: legge, data: 1990, numero_atto: 241, url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1990-08-07;241
+2024-07-07 15:39:08,554 INFO Norma initialized: legge 1990, n. 241 art. 1
+2024-07-07 15:39:08,554 INFO NormaVisitata initialized: legge 1990, n. 241 art. 1
+2024-07-07 15:39:08,555 INFO Created NormaVisitata: legge 1990, n. 241 art. 1
+2024-07-07 15:39:08,555 INFO Getting URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1990-08-07;241~art1!vig=
+2024-07-07 15:39:08,555 INFO Fetching HTML content from URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1990-08-07;241~art1!vig=
+2024-07-07 15:39:09,515 INFO HTML content fetched successfully
+2024-07-07 15:39:09,515 INFO Extracting article from HTML. Comma: None
+2024-07-07 15:39:09,538 INFO Parsed HTML with BeautifulSoup
+2024-07-07 15:39:09,540 INFO Found body of the document
+2024-07-07 15:39:09,541 INFO No comma specified, returning full body text
+2024-07-07 15:39:09,542 INFO Extracted article text: 
+La Camera dei deputati ed il Senato della Repubblica hanno approvato;
+IL PRESIDENTE DELLA REPUBBLICA
+PROMULGA
+ la seguente legge:
+Art. 1
+(Principi generali dell'attività amministrativa)
+
+
+1. L'attività amministrativa persegue i fini determinati dalla legge ed è retta da criteri di economicità, di efficacia, di imparzialità, di pubblicità e di trasparenza secondo le modalità previste dalla presente legge e dalle altre disposizioni che disciplinano singoli procedimenti , nonché dai principi dell'ordinamento comunitario. 
+
+
+
+1-bis. La pubblica amministrazione, nell'adozione di atti di natura non autoritativa, agisce secondo le norme di diritto privato salvo che la legge disponga diversamente. 
+
+
+
+1-ter. I soggetti privati preposti all'esercizio di attività amministrative assicurano il rispetto dei criteri e dei principi di cui al comma 1, con un livello di garanzia non inferiore a quello cui sono tenute le pubbliche amministrazioni in forza delle disposizioni di cui alla presente legge. 
+
+
+
+2. La pubblica amministrazione non può aggravare il procedimento se non per straordinarie e motivate esigenze imposte dallo svolgimento dell'istruttoria. 
+
+
+
+
+((
+
+
+2-bis. I rapporti tra il cittadino e la pubblica amministrazione sono improntati ai principi della collaborazione e della buona fede
+
+
+))
+
+
+
+
+2024-07-07 15:39:09,543 INFO Getting URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1990-08-07;241~art1!vig=
+2024-07-07 15:39:09,543 INFO Appended NormaVisitata to history. Current history size: 1
+2024-07-07 15:39:09,544 INFO 127.0.0.1 - - [07/Jul/2024 15:39:09] "POST /fetch_norm HTTP/1.1" 200 -
+2024-07-07 15:39:09,548 INFO Fetching history
+2024-07-07 15:39:09,549 INFO 127.0.0.1 - - [07/Jul/2024 15:39:09] "GET /history HTTP/1.1" 200 -
+2024-07-07 15:39:18,189 INFO Received data for fetch_norm: {'act_type': 'decreto legislativo', 'date': '2001', 'act_number': '165', 'article': '1', 'version': 'vigente', 'version_date': '', 'comma': ''}
+2024-07-07 15:39:18,189 INFO Initializing Norma with tipo_atto: decreto legislativo, data: 2001, numero_atto: 165, url: None
+2024-07-07 15:39:18,190 INFO Normalizing act type: decreto legislativo, search: True, source: normattiva
+2024-07-07 15:39:18,190 INFO Normalized act type found: decreto legislativo
+2024-07-07 15:39:18,190 INFO Normalizing act type: decreto legislativo, search: False, source: normattiva
+2024-07-07 15:39:18,190 INFO Normalized act type found: decreto.legislativo
+2024-07-07 15:39:18,190 INFO Starting generate_urn with act_type: decreto.legislativo, date: 2001, act_number: 165, article: None, extension: None, version: None, version_date: None, urn_flag: False
+2024-07-07 15:39:18,191 INFO Normalizing act type: decreto.legislativo, search: False, source: normattiva
+2024-07-07 15:39:18,191 INFO Normalized act type found: decreto.legislativo
+2024-07-07 15:39:18,191 INFO Normalizing act type: decreto.legislativo, search: True, source: normattiva
+2024-07-07 15:39:18,191 INFO Normalized act type found: decreto legislativo
+2024-07-07 15:39:18,191 INFO Starting complete_date with act_type: decreto legislativo, date: 2001, act_number: 165
+2024-07-07 15:39:20,290 INFO Search criteria: decreto legislativo 165 2001
+2024-07-07 15:39:24,126 INFO Element text found: DECRETO LEGISLATIVO 30 Marzo 2001, n. 165
+2024-07-07 15:39:24,126 INFO Extracting date from denomination: DECRETO LEGISLATIVO 30 Marzo 2001, n. 165
+2024-07-07 15:39:24,127 INFO Extracted date: 30 Marzo 2001
+2024-07-07 15:39:24,127 INFO Completed date: 30 Marzo 2001
+2024-07-07 15:39:24,127 INFO Parsing date: 30 Marzo 2001
+2024-07-07 15:39:24,127 INFO Formatted date: 2001-03-30
+2024-07-07 15:39:24,127 INFO Formatted date: 2001-03-30
+2024-07-07 15:39:24,127 INFO Generated URN: decreto.legislativo:2001-03-30;165
+2024-07-07 15:39:24,127 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2001-03-30;165
+2024-07-07 15:39:26,358 INFO Norma initialized: decreto legislativo 2001, n. 165
+2024-07-07 15:39:26,359 INFO Starting generate_urn with act_type: decreto.legislativo, date: 2001, act_number: 165, article: 1, extension: None, version: vigente, version_date: , urn_flag: True
+2024-07-07 15:39:26,359 INFO Formatted date: 2001-03-30
+2024-07-07 15:39:26,359 INFO Generated URN: decreto.legislativo:2001-03-30;165
+2024-07-07 15:39:26,359 INFO Article part of URN: decreto.legislativo:2001-03-30;165~art1
+2024-07-07 15:39:26,359 INFO Version part of URN: decreto.legislativo:2001-03-30;165~art1!vig=
+2024-07-07 15:39:26,359 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2001-03-30;165~art1!vig=
+2024-07-07 15:39:26,359 INFO Initializing Norma with tipo_atto: decreto legislativo, data: 2001, numero_atto: 165, url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2001-03-30;165
+2024-07-07 15:39:26,359 INFO Norma initialized: decreto legislativo 2001, n. 165 art. 1
+2024-07-07 15:39:26,360 INFO NormaVisitata initialized: decreto legislativo 2001, n. 165 art. 1
+2024-07-07 15:39:26,360 INFO Created NormaVisitata: decreto legislativo 2001, n. 165 art. 1
+2024-07-07 15:39:26,360 INFO Getting URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2001-03-30;165~art1!vig=
+2024-07-07 15:39:26,360 INFO Fetching HTML content from URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2001-03-30;165~art1!vig=
+2024-07-07 15:39:27,318 INFO HTML content fetched successfully
+2024-07-07 15:39:27,320 INFO Extracting article from HTML. Comma: None
+2024-07-07 15:39:27,351 INFO Parsed HTML with BeautifulSoup
+2024-07-07 15:39:27,353 INFO Found body of the document
+2024-07-07 15:39:27,353 INFO No comma specified, returning full body text
+2024-07-07 15:39:27,356 INFO Extracted article text: 
+IL PRESIDENTE DELLA REPUBBLICA
+
+
+
+Visti gli articoli 76 ed 87 della Costituzione.
+
+
+
+
+
+
+Vista la legge 23 ottobre1992, n. 421, ed in particolare l'articolo 2;
+
+
+
+
+
+
+Vista la legge 15 marzo 1997, n. 59;
+
+
+
+
+
+
+Visto il decreto legislativo 3 febbraio 1993, n. 29, e successive modificazioni ed integrazioni;
+
+
+
+
+
+
+Visto l'articolo 1, comma 8, della legge 24 novembre 2000. n. 340:
+
+
+
+
+
+
+Vista la preliminare deliberazione del Consiglio dei Ministri adottata nella seduta del 7 febbraio 2001;
+
+
+
+
+Acquisito il parere dalla Conferenza unificata di cui all'articolo 8 del decreto legislativo 28 agosto 1997, n. 281, espresso in data 8 febbraio 2001;
+
+
+Acquisito il parere delle competenti Commissioni del Senato della Repubblica e della Camera dei Deputati, rispettivamente in data 27 e 28 febbraio 2001;
+
+
+
+
+Viste le deliberazioni del Consiglio dei Ministri, adottate nelle sedute del 21 e 30 marzo 2001;
+
+
+
+
+Su proposta del Presidente del Consiglio dei Ministri e del Ministro per la funzione pubblica;
+
+EMANA
+ il seguente decreto legislativo:
+Art. 1
+ Finalità ed ambito di applicazione 
+(Art. 1 del d.lgs. n. 29 del 1993, come modificato dall'art. 1 del d.lgs. n. 80 del 1998)
+
+
+
+
+1. Le disposizioni del presente decreto disciplinano l'organizzazione degli uffici e i rapporti di lavoro e di impiego alle dipendenze delle amministrazioni pubbliche, tenuto conto delle autonomie locali e di quelle delle regioni e delle province autonome, nel rispetto dell'articolo 97, comma primo, della Costituzione, al fine di: 
+
+a) accrescere l'efficienza delle amministrazioni in relazione a quella dei corrispondenti uffici e servizi dei Paesi dell'Unione europea, anche mediante il coordinato sviluppo di sistemi informativi pubblici; 
+
+b) razionalizzare il costo del lavoro pubblico, contenendo la spesa complessiva per il personale, diretta e indiretta, entro i vincoli di finanza pubblica; 
+
+c) realizzare la migliore utilizzazione delle risorse umane nelle pubbliche amministrazioni, assicurando la formazione e lo sviluppo professionale dei dipendenti, applicando condizioni uniformi rispetto a quelle del lavoro privato, garantendo pari opportunità alle lavoratrici ed ai lavoratori nonché l'assenza di qualunque forma di discriminazione e di violenza morale o psichica. 
+
+
+
+
+2. Per amministrazioni pubbliche si intendono tutte le amministrazioni dello Stato, ivi compresi gli istituti e scuole di ogni ordine e grado e le istituzioni educative, le aziende ed amministrazioni dello Stato ad ordinamento autonomo, le Regioni, le Province, i Comuni, le Comunità montane, e loro consorzi e associazioni, le istituzioni universitarie, gli Istituti autonomi case popolari, le Camere di commercio, industria, artigianato e agricoltura e loro associazioni, tutti gli enti pubblici non economici nazionali, regionali e locali, le amministrazioni, le aziende e gli enti del Servizio sanitario nazionale l'Agenzia per la rappresentanza negoziale delle pubbliche amministrazioni (ARAN) e le Agenzie di cui al decreto legislativo 30 luglio 1999, n. 300. ((Fino alla revisione organica della disciplina di settore, le disposizioni di cui al presente decreto continuano ad applicarsi anche al CONI)). 
+
+
+
+3. Le disposizioni del presente decreto costituiscono principi fondamentali ai sensi dell'articolo 117 della Costituzione. Le Regioni a statuto ordinario si attengono ad esse tenendo conto delle peculiarità dei rispettivi ordinamenti. I principi desumibili dall'articolo 2 della legge 23 ottobre 1992, n. 421, e successive modificazioni, e dall'articolo 11, comma 4, della legge 15 marzo 1997, n. 59, e successive modificazioni ed integrazioni, costituiscono altresì, per le Regioni a statuto speciale e per le province autonome di Trento e di Bolzano, norme fondamentali di riforma economico-sociale della Repubblica. 
+
+
+
+
+2024-07-07 15:39:27,359 INFO Getting URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2001-03-30;165~art1!vig=
+2024-07-07 15:39:27,359 INFO Appended NormaVisitata to history. Current history size: 2
+2024-07-07 15:39:27,360 INFO 127.0.0.1 - - [07/Jul/2024 15:39:27] "POST /fetch_norm HTTP/1.1" 200 -
+2024-07-07 15:39:27,363 INFO Fetching history
+2024-07-07 15:39:27,364 INFO 127.0.0.1 - - [07/Jul/2024 15:39:27] "GET /history HTTP/1.1" 200 -
