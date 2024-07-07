@@ -33,61 +33,47 @@ def save_html(html_data, save_html_path):
         return f"Errore durante il salvataggio dell'HTML: {e}"
 
 @lru_cache(maxsize=MAX_CACHE_SIZE)
-def estrai_da_html(atto, num_articolo=None, comma=None):
+def estrai_da_html(atto, comma=None):
     """
     Estrae il testo di un articolo specifico da un documento HTML.
     
     Arguments:
     atto -- The HTML content of the document
-    num_articolo -- The article number to extract (optional)
     comma -- The comma number to extract (optional)
     
     Returns:
     str -- The extracted text or an error message
     """
-    logging.info(f"Extracting article from HTML. Article number: {num_articolo}, Comma: {comma}")
+    logging.info(f"Extracting article from HTML. Comma: {comma}")
     try:
         soup = BeautifulSoup(atto, 'html.parser')
+        logging.info("Parsed HTML with BeautifulSoup")
+
         corpo = soup.find('div', class_='bodyTesto')
+        logging.info("Found body of the document")
 
-        if not corpo:
-            logging.warning("Body of the document not found.")
-            return "Corpo dell'atto non trovato."
-
-        if num_articolo:
-            # Log the id of the found articles
-            articoli = corpo.find_all('div', class_='articolo')
-            articoli_ids = [art['id'] for art in articoli]
-            logging.info(f"Found articles with IDs: {articoli_ids}")
-
-            articolo = next((art for art in articoli if art.get('id') == num_articolo), None)
-            if not articolo:
-                logging.warning(f"Article number {num_articolo} not found.")
-                return "Nessun articolo trovato."
-
-            if comma:
-                commi = articolo.find_all('div', class_='art-comma-div-akn')
-                for c in commi:
-                    comma_text = c.find('span', class_='comma-num-akn').text
-                    logging.info(f"Found comma with text: {comma_text}")
-                    if f'{comma}.' in comma_text:
-                        extracted_text = c.get_text(separator="\n", strip=True)
-                        logging.info(f"Extracted comma text: {extracted_text}")
-                        return extracted_text
-                logging.warning(f"Comma number {comma} not found.")
-                return "Comma non trovato."
-            
-            extracted_text = articolo.get_text(separator="\n", strip=True)
-            logging.info(f"Extracted article text: {extracted_text}")
-            return extracted_text
+        if not comma:
+            logging.info("No comma specified, returning full body text")
+            return corpo.text
         else:
-            extracted_text = corpo.get_text(separator="\n", strip=True)
-            logging.info(f"Extracted document body text: {extracted_text}")
-            return extracted_text
+            parsedcorpo = corpo.find('div', class_='art-commi-div-akn')
+            logging.info("Found parsed body for comma extraction")
 
+            commi = parsedcorpo.find_all('div', class_='art-comma-div-akn')
+            logging.info(f"Found {len(commi)} commi elements")
+
+            for c in commi:
+                comma_text = c.find('span', class_='comma-num-akn').text
+                logging.info(f"Checking comma: {comma_text}")
+                if f'{comma}.' in comma_text:
+                    extracted_text = c.text.strip()
+                    logging.info(f"Extracted comma text: {extracted_text}")
+                    return extracted_text
     except Exception as e:
-        logging.error(f"Error extracting article: {e}", exc_info=True)
-        return f"Errore durante l'estrazione: {e}"
+        logging.error(f"Errore generico: {e}", exc_info=True)
+        return f"Errore generico: {e}"
+
+
 
 @lru_cache(maxsize=MAX_CACHE_SIZE)
 def extract_html_article(norma_visitata):
@@ -107,7 +93,7 @@ def extract_html_article(norma_visitata):
         if response.status_code == 200:
             html_content = response.text
             logging.info("HTML content fetched successfully")
-            return estrai_da_html(atto=html_content, num_articolo=norma_visitata.numero_articolo, comma=None)
+            return estrai_da_html(atto=html_content, comma=None)
         else:
             logging.warning(f"Failed to fetch HTML content. Status code: {response.status_code}")
             return None

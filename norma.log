@@ -1,321 +1,66 @@
-2024-07-07 04:06:47,886 INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on http://127.0.0.1:5000
-2024-07-07 04:06:47,887 INFO [33mPress CTRL+C to quit[0m
-2024-07-07 04:06:47,888 INFO  * Restarting with stat
-2024-07-07 04:06:48,236 WARNING  * Debugger is active!
-2024-07-07 04:06:48,239 INFO  * Debugger PIN: 122-828-192
-2024-07-07 04:06:50,135 INFO 127.0.0.1 - - [07/Jul/2024 04:06:50] "GET / HTTP/1.1" 200 -
-2024-07-07 04:06:50,259 INFO 127.0.0.1 - - [07/Jul/2024 04:06:50] "GET /static/js/script.js HTTP/1.1" 200 -
-2024-07-07 04:06:50,261 INFO 127.0.0.1 - - [07/Jul/2024 04:06:50] "GET /static/css/styles.css HTTP/1.1" 200 -
-2024-07-07 04:06:50,266 INFO 127.0.0.1 - - [07/Jul/2024 04:06:50] "[33mGET /history HTTP/1.1[0m" 404 -
-2024-07-07 04:06:50,305 INFO 127.0.0.1 - - [07/Jul/2024 04:06:50] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-2024-07-07 04:06:57,473 INFO 127.0.0.1 - - [07/Jul/2024 04:06:57] "POST /fetch_norm HTTP/1.1" 200 -
-2024-07-07 04:08:18,817 INFO  * Detected change in 'c:\\Users\\gpuzio\\Desktop\\VisuaLex_Beta\\app.py', reloading
-2024-07-07 04:08:18,882 INFO  * Restarting with stat
-2024-07-07 04:08:19,258 WARNING  * Debugger is active!
-2024-07-07 04:08:19,261 INFO  * Debugger PIN: 122-828-192
-2024-07-07 04:08:22,009 INFO 127.0.0.1 - - [07/Jul/2024 04:08:22] "POST /fetch_norm HTTP/1.1" 200 -
-2024-07-07 04:08:38,726 INFO 127.0.0.1 - - [07/Jul/2024 04:08:38] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
-2024-07-07 04:10:37,550 INFO  * Detected change in 'c:\\Users\\gpuzio\\Desktop\\VisuaLex_Beta\\tools\\norma.py', reloading
-2024-07-07 04:10:37,612 INFO  * Restarting with stat
-2024-07-07 04:10:37,998 WARNING  * Debugger is active!
-2024-07-07 04:10:38,000 INFO  * Debugger PIN: 122-828-192
-2024-07-07 04:10:41,130 INFO 127.0.0.1 - - [07/Jul/2024 04:10:41] "POST /fetch_norm HTTP/1.1" 200 -
-2024-07-07 04:11:35,753 INFO  * Detected change in 'c:\\Users\\gpuzio\\Desktop\\VisuaLex_Beta\\app.py', reloading
-2024-07-07 04:11:35,814 INFO  * Restarting with stat
-2024-07-07 04:11:36,178 WARNING  * Debugger is active!
-2024-07-07 04:11:36,181 INFO  * Debugger PIN: 122-828-192
-2024-07-07 04:11:57,538 INFO 127.0.0.1 - - [07/Jul/2024 04:11:57] "POST /fetch_norm HTTP/1.1" 200 -
-2024-07-07 04:14:24,352 INFO  * Detected change in 'c:\\Users\\gpuzio\\Desktop\\VisuaLex_Beta\\tools\\urngenerator.py', reloading
-2024-07-07 04:14:24,425 INFO  * Restarting with stat
-2024-07-07 04:14:24,815 WARNING  * Debugger is active!
-2024-07-07 04:14:24,817 INFO  * Debugger PIN: 122-828-192
-2024-07-07 04:14:31,931 INFO 127.0.0.1 - - [07/Jul/2024 04:14:31] "POST /fetch_norm HTTP/1.1" 200 -
-2024-07-07 04:14:31,936 ERROR Errore durante il fetch_tree: 'norma_visitata'
-2024-07-07 04:14:31,936 INFO 127.0.0.1 - - [07/Jul/2024 04:14:31] "POST /fetch_tree HTTP/1.1" 200 -
-2024-07-07 04:14:31,937 INFO 127.0.0.1 - - [07/Jul/2024 04:14:31] "[33mGET /history HTTP/1.1[0m" 404 -
-2024-07-07 04:17:41,194 INFO  * Detected change in 'c:\\Users\\gpuzio\\Desktop\\VisuaLex_Beta\\app.py', reloading
-2024-07-07 04:17:41,256 INFO  * Restarting with stat
-2024-07-07 04:17:41,638 INFO Starting Flask app in debug mode
-2024-07-07 04:17:41,648 WARNING  * Debugger is active!
-2024-07-07 04:17:41,651 INFO  * Debugger PIN: 122-828-192
-2024-07-07 04:17:43,280 INFO Received data for fetch_norm: {'act_type': 'costituzione', 'date': '', 'act_number': '', 'article': '1', 'version': 'vigente', 'version_date': '', 'comma': ''}
-2024-07-07 04:17:44,477 INFO Created NormaVisitata: costituzione art. 1
-2024-07-07 04:17:45,376 INFO Extracted article text: Nessun articolo trovato.
-2024-07-07 04:17:45,377 INFO Appended NormaVisitata to history. Current history size: 1
-2024-07-07 04:17:45,377 INFO 127.0.0.1 - - [07/Jul/2024 04:17:45] "POST /fetch_norm HTTP/1.1" 200 -
-2024-07-07 04:17:45,383 INFO 127.0.0.1 - - [07/Jul/2024 04:17:45] "[33mGET /history HTTP/1.1[0m" 404 -
-2024-07-07 04:19:50,518 INFO  * Detected change in 'c:\\Users\\gpuzio\\Desktop\\VisuaLex_Beta\\tools\\urngenerator.py', reloading
-2024-07-07 04:19:50,593 INFO  * Restarting with stat
-2024-07-07 04:19:50,954 INFO Starting Flask app in debug mode
-2024-07-07 04:19:50,964 WARNING  * Debugger is active!
-2024-07-07 04:19:50,966 INFO  * Debugger PIN: 122-828-192
-2024-07-07 04:20:13,591 INFO 127.0.0.1 - - [07/Jul/2024 04:20:13] "GET / HTTP/1.1" 200 -
-2024-07-07 04:20:13,709 INFO 127.0.0.1 - - [07/Jul/2024 04:20:13] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
-2024-07-07 04:20:13,710 INFO 127.0.0.1 - - [07/Jul/2024 04:20:13] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
-2024-07-07 04:20:13,717 INFO 127.0.0.1 - - [07/Jul/2024 04:20:13] "[33mGET /history HTTP/1.1[0m" 404 -
-2024-07-07 04:20:15,434 INFO Received data for fetch_norm: {'act_type': 'costituzione', 'date': '', 'act_number': '', 'article': '1', 'version': 'vigente', 'version_date': '', 'comma': ''}
-2024-07-07 04:20:15,435 INFO Starting generate_urn with act_type: costituzione, date: , act_number: , article: None, extension: None, version: None, version_date: None, urn_flag: False
-2024-07-07 04:20:15,435 INFO Found URN in codici_urn: /uri-res/N2Ls?urn:nir:stato:costituzione
-2024-07-07 04:20:15,436 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:/uri-res/N2Ls?urn:nir:stato:costituzione
-2024-07-07 04:20:17,004 INFO Starting generate_urn with act_type: costituzione, date: , act_number: , article: 1, extension: None, version: vigente, version_date: , urn_flag: True
-2024-07-07 04:20:17,005 INFO Found URN in codici_urn: /uri-res/N2Ls?urn:nir:stato:costituzione
-2024-07-07 04:20:17,005 INFO Article part of URN: /uri-res/N2Ls?urn:nir:stato:costituzione~art1
-2024-07-07 04:20:17,005 INFO Version part of URN: /uri-res/N2Ls?urn:nir:stato:costituzione~art1!vig=
-2024-07-07 04:20:17,006 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:/uri-res/N2Ls?urn:nir:stato:costituzione~art1!vig=
-2024-07-07 04:20:17,006 INFO Created NormaVisitata: costituzione art. 1
-2024-07-07 04:20:17,925 INFO Extracted article text: Nessun articolo trovato.
-2024-07-07 04:20:17,925 INFO Appended NormaVisitata to history. Current history size: 1
-2024-07-07 04:20:17,926 INFO 127.0.0.1 - - [07/Jul/2024 04:20:17] "POST /fetch_norm HTTP/1.1" 200 -
-2024-07-07 04:20:17,930 ERROR Error in fetch_tree: 'norma_visitata'
+2024-07-07 15:36:51,556 INFO Received data for fetch_norm: {'act_type': 'legge', 'date': '1990', 'act_number': '241', 'article': '1', 'version': 'vigente', 'version_date': '', 'comma': ''}
+2024-07-07 15:36:51,557 INFO Initializing Norma with tipo_atto: legge, data: 1990, numero_atto: 241, url: None
+2024-07-07 15:36:51,557 INFO Starting generate_urn with act_type: legge, date: 1990, act_number: 241, article: None, extension: None, version: None, version_date: None, urn_flag: False
+2024-07-07 15:36:51,557 INFO Parsing date: Errore nel completamento della data, inserisci la data completa: HTTPConnectionPool(host='localhost', port=52985): Max retries exceeded with url: /session/976de2d5af37d84b97425b991647e6c7/url (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001E53027AA90>: Failed to establish a new connection: [WinError 10061] Impossibile stabilire la connessione. Rifiuto persistente del computer di destinazione'))
+2024-07-07 15:36:51,558 ERROR Invalid date format
+2024-07-07 15:36:51,558 ERROR Error generating URN: Formato data non valido
 Traceback (most recent call last):
-  File "c:\Users\gpuzio\Desktop\VisuaLex_Beta\app.py", line 115, in fetch_tree
-    norma_data = data['norma_visitata']
-                 ~~~~^^^^^^^^^^^^^^^^^^
-KeyError: 'norma_visitata'
-2024-07-07 04:20:17,931 INFO 127.0.0.1 - - [07/Jul/2024 04:20:17] "[33mGET /history HTTP/1.1[0m" 404 -
-2024-07-07 04:20:17,932 INFO 127.0.0.1 - - [07/Jul/2024 04:20:17] "POST /fetch_tree HTTP/1.1" 200 -
-2024-07-07 04:20:45,384 INFO  * Detected change in 'c:\\Users\\gpuzio\\Desktop\\VisuaLex_Beta\\app.py', reloading
-2024-07-07 04:20:45,442 INFO  * Restarting with stat
-2024-07-07 04:20:45,805 INFO Starting Flask app in debug mode
-2024-07-07 04:20:45,815 WARNING  * Debugger is active!
-2024-07-07 04:20:45,818 INFO  * Debugger PIN: 122-828-192
-2024-07-07 04:20:47,166 INFO Received data for fetch_norm: {'act_type': 'costituzione', 'date': '', 'act_number': '', 'article': '1', 'version': 'vigente', 'version_date': '', 'comma': ''}
-2024-07-07 04:20:47,166 INFO Starting generate_urn with act_type: costituzione, date: , act_number: , article: None, extension: None, version: None, version_date: None, urn_flag: False
-2024-07-07 04:20:47,166 INFO Found URN in codici_urn: /uri-res/N2Ls?urn:nir:stato:costituzione
-2024-07-07 04:20:47,167 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:/uri-res/N2Ls?urn:nir:stato:costituzione
-2024-07-07 04:20:48,402 INFO Starting generate_urn with act_type: costituzione, date: , act_number: , article: 1, extension: None, version: vigente, version_date: , urn_flag: True
-2024-07-07 04:20:48,402 INFO Found URN in codici_urn: /uri-res/N2Ls?urn:nir:stato:costituzione
-2024-07-07 04:20:48,403 INFO Article part of URN: /uri-res/N2Ls?urn:nir:stato:costituzione~art1
-2024-07-07 04:20:48,403 INFO Version part of URN: /uri-res/N2Ls?urn:nir:stato:costituzione~art1!vig=
-2024-07-07 04:20:48,404 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:/uri-res/N2Ls?urn:nir:stato:costituzione~art1!vig=
-2024-07-07 04:20:48,404 INFO Created NormaVisitata: costituzione art. 1
-2024-07-07 04:20:49,317 INFO Extracted article text: Nessun articolo trovato.
-2024-07-07 04:20:49,317 INFO Appended NormaVisitata to history. Current history size: 1
-2024-07-07 04:20:49,318 INFO 127.0.0.1 - - [07/Jul/2024 04:20:49] "POST /fetch_norm HTTP/1.1" 200 -
-2024-07-07 04:20:49,322 INFO 127.0.0.1 - - [07/Jul/2024 04:20:49] "[33mGET /history HTTP/1.1[0m" 404 -
-2024-07-07 04:20:52,683 INFO 127.0.0.1 - - [07/Jul/2024 04:20:52] "GET / HTTP/1.1" 200 -
-2024-07-07 04:20:52,798 INFO 127.0.0.1 - - [07/Jul/2024 04:20:52] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
-2024-07-07 04:20:52,799 INFO 127.0.0.1 - - [07/Jul/2024 04:20:52] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
-2024-07-07 04:20:52,807 INFO 127.0.0.1 - - [07/Jul/2024 04:20:52] "[33mGET /history HTTP/1.1[0m" 404 -
-2024-07-07 04:20:54,247 INFO Received data for fetch_norm: {'act_type': 'costituzione', 'date': '', 'act_number': '', 'article': '1', 'version': 'vigente', 'version_date': '', 'comma': ''}
-2024-07-07 04:20:54,247 INFO Starting generate_urn with act_type: costituzione, date: , act_number: , article: None, extension: None, version: None, version_date: None, urn_flag: False
-2024-07-07 04:20:54,247 INFO Found URN in codici_urn: /uri-res/N2Ls?urn:nir:stato:costituzione
-2024-07-07 04:20:54,248 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:/uri-res/N2Ls?urn:nir:stato:costituzione
-2024-07-07 04:20:54,248 INFO Starting generate_urn with act_type: costituzione, date: , act_number: , article: 1, extension: None, version: vigente, version_date: , urn_flag: True
-2024-07-07 04:20:54,249 INFO Found URN in codici_urn: /uri-res/N2Ls?urn:nir:stato:costituzione
-2024-07-07 04:20:54,249 INFO Article part of URN: /uri-res/N2Ls?urn:nir:stato:costituzione~art1
-2024-07-07 04:20:54,249 INFO Version part of URN: /uri-res/N2Ls?urn:nir:stato:costituzione~art1!vig=
-2024-07-07 04:20:54,249 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:/uri-res/N2Ls?urn:nir:stato:costituzione~art1!vig=
-2024-07-07 04:20:54,249 INFO Created NormaVisitata: costituzione art. 1
-2024-07-07 04:20:55,164 INFO Extracted article text: Nessun articolo trovato.
-2024-07-07 04:20:55,164 INFO Appended NormaVisitata to history. Current history size: 2
-2024-07-07 04:20:55,164 INFO 127.0.0.1 - - [07/Jul/2024 04:20:55] "POST /fetch_norm HTTP/1.1" 200 -
-2024-07-07 04:20:55,169 ERROR Error in fetch_tree: 'norma_data'
+  File "c:\Users\gpuzio\Desktop\VisuaLex_Beta\tools\text_op.py", line 65, in parse_date
+    datetime.datetime.strptime(input_date, "%Y-%m-%d")
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\_strptime.py", line 567, in _strptime_datetime
+    tt, fraction, gmtoff_fraction = _strptime(data_string, format)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\_strptime.py", line 349, in _strptime
+    raise ValueError("time data %r does not match format %r" %
+ValueError: time data "Errore nel completamento della data, inserisci la data completa: HTTPConnectionPool(host='localhost', port=52985): Max retries exceeded with url: /session/976de2d5af37d84b97425b991647e6c7/url (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001E53027AA90>: Failed to establish a new connection: [WinError 10061] Impossibile stabilire la connessione. Rifiuto persistente del computer di destinazione'))" does not match format '%Y-%m-%d'
+
+During handling of the above exception, another exception occurred:
+
 Traceback (most recent call last):
-  File "c:\Users\gpuzio\Desktop\VisuaLex_Beta\app.py", line 115, in fetch_tree
-    norma_data = data['norma_data']
-                 ~~~~^^^^^^^^^^^^^^
-KeyError: 'norma_data'
-2024-07-07 04:20:55,170 INFO 127.0.0.1 - - [07/Jul/2024 04:20:55] "[33mGET /history HTTP/1.1[0m" 404 -
-2024-07-07 04:20:55,171 INFO 127.0.0.1 - - [07/Jul/2024 04:20:55] "POST /fetch_tree HTTP/1.1" 200 -
-2024-07-07 04:21:46,087 INFO  * Detected change in 'c:\\Users\\gpuzio\\Desktop\\VisuaLex_Beta\\app.py', reloading
-2024-07-07 04:21:46,136 INFO  * Restarting with stat
-2024-07-07 04:21:46,484 INFO Starting Flask app in debug mode
-2024-07-07 04:21:46,493 WARNING  * Debugger is active!
-2024-07-07 04:21:46,496 INFO  * Debugger PIN: 122-828-192
-2024-07-07 04:21:49,836 INFO Received data for fetch_norm: {'act_type': 'costituzione', 'date': '', 'act_number': '', 'article': '1', 'version': 'vigente', 'version_date': '', 'comma': ''}
-2024-07-07 04:21:49,837 INFO Starting generate_urn with act_type: costituzione, date: , act_number: , article: None, extension: None, version: None, version_date: None, urn_flag: False
-2024-07-07 04:21:49,837 INFO Found URN in codici_urn: /uri-res/N2Ls?urn:nir:stato:costituzione
-2024-07-07 04:21:49,837 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:/uri-res/N2Ls?urn:nir:stato:costituzione
-2024-07-07 04:21:50,998 INFO Starting generate_urn with act_type: costituzione, date: , act_number: , article: 1, extension: None, version: vigente, version_date: , urn_flag: True
-2024-07-07 04:21:50,999 INFO Found URN in codici_urn: /uri-res/N2Ls?urn:nir:stato:costituzione
-2024-07-07 04:21:50,999 INFO Article part of URN: /uri-res/N2Ls?urn:nir:stato:costituzione~art1
-2024-07-07 04:21:51,000 INFO Version part of URN: /uri-res/N2Ls?urn:nir:stato:costituzione~art1!vig=
-2024-07-07 04:21:51,000 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:/uri-res/N2Ls?urn:nir:stato:costituzione~art1!vig=
-2024-07-07 04:21:51,000 INFO Created NormaVisitata: costituzione art. 1
-2024-07-07 04:21:52,031 INFO Extracted article text: Nessun articolo trovato.
-2024-07-07 04:21:52,032 INFO Appended NormaVisitata to history. Current history size: 1
-2024-07-07 04:21:52,032 INFO 127.0.0.1 - - [07/Jul/2024 04:21:52] "POST /fetch_norm HTTP/1.1" 200 -
-2024-07-07 04:21:52,037 INFO 127.0.0.1 - - [07/Jul/2024 04:21:52] "[33mGET /history HTTP/1.1[0m" 404 -
-2024-07-07 04:22:49,564 INFO  * Detected change in 'c:\\Users\\gpuzio\\Desktop\\VisuaLex_Beta\\tools\\norma.py', reloading
-2024-07-07 04:22:49,601 INFO  * Restarting with stat
-2024-07-07 04:22:49,986 INFO Starting Flask app in debug mode
-2024-07-07 04:22:49,995 WARNING  * Debugger is active!
-2024-07-07 04:22:49,998 INFO  * Debugger PIN: 122-828-192
-2024-07-07 04:23:09,243 INFO  * Detected change in 'c:\\Users\\gpuzio\\Desktop\\VisuaLex_Beta\\tools\\pdfextractor.py', reloading
-2024-07-07 04:23:09,302 INFO  * Restarting with stat
-2024-07-07 04:23:09,659 INFO Starting Flask app in debug mode
-2024-07-07 04:23:09,668 WARNING  * Debugger is active!
-2024-07-07 04:23:09,671 INFO  * Debugger PIN: 122-828-192
-2024-07-07 04:25:01,421 INFO  * Detected change in 'c:\\Users\\gpuzio\\Desktop\\VisuaLex_Beta\\tools\\text_op.py', reloading
-2024-07-07 04:25:01,476 INFO  * Restarting with stat
-2024-07-07 04:25:01,833 INFO Starting Flask app in debug mode
-2024-07-07 04:25:01,841 WARNING  * Debugger is active!
-2024-07-07 04:25:01,844 INFO  * Debugger PIN: 122-828-192
-2024-07-07 04:26:59,093 INFO  * Detected change in 'c:\\Users\\gpuzio\\Desktop\\VisuaLex_Beta\\tools\\xlm_htmlextractor.py', reloading
-2024-07-07 04:26:59,146 INFO  * Restarting with stat
-2024-07-07 04:26:59,487 INFO Starting Flask app in debug mode
-2024-07-07 04:26:59,495 WARNING  * Debugger is active!
-2024-07-07 04:26:59,497 INFO  * Debugger PIN: 122-828-192
-2024-07-07 04:27:02,230 INFO 127.0.0.1 - - [07/Jul/2024 04:27:02] "GET / HTTP/1.1" 200 -
-2024-07-07 04:27:02,346 INFO 127.0.0.1 - - [07/Jul/2024 04:27:02] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
-2024-07-07 04:27:02,347 INFO 127.0.0.1 - - [07/Jul/2024 04:27:02] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
-2024-07-07 04:27:02,355 INFO 127.0.0.1 - - [07/Jul/2024 04:27:02] "[33mGET /history HTTP/1.1[0m" 404 -
-2024-07-07 04:27:03,753 INFO Received data for fetch_norm: {'act_type': 'costituzione', 'date': '', 'act_number': '', 'article': '1', 'version': 'vigente', 'version_date': '', 'comma': ''}
-2024-07-07 04:27:03,754 INFO Initializing Norma with tipo_atto: costituzione, data: , numero_atto: , url: None
-2024-07-07 04:27:03,754 INFO Normalizing act type: costituzione, search: True, source: normattiva
-2024-07-07 04:27:03,754 INFO Normalized act type found: costituzione
-2024-07-07 04:27:03,755 INFO Normalizing act type: costituzione, search: False, source: normattiva
-2024-07-07 04:27:03,755 INFO Normalized act type found: costituzione
-2024-07-07 04:27:03,755 INFO Starting generate_urn with act_type: costituzione, date: , act_number: , article: None, extension: None, version: None, version_date: None, urn_flag: False
-2024-07-07 04:27:03,756 INFO Found URN in codici_urn: /uri-res/N2Ls?urn:nir:stato:costituzione
-2024-07-07 04:27:03,756 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:/uri-res/N2Ls?urn:nir:stato:costituzione
-2024-07-07 04:27:05,328 INFO Norma initialized: costituzione
-2024-07-07 04:27:05,329 INFO Initializing NormaVisitata with norma: costituzione, numero_articolo: 1, versione: vigente, data_versione: , urn: None
-2024-07-07 04:27:05,329 INFO Initializing Norma with tipo_atto: costituzione, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:/uri-res/N2Ls?urn:nir:stato:costituzione
-2024-07-07 04:27:05,329 ERROR Error in fetch_data: 'NormaVisitata' object has no attribute 'numero_articolo'
+  File "c:\Users\gpuzio\Desktop\VisuaLex_Beta\tools\urngenerator.py", line 84, in generate_urn
+    formatted_date = parse_date(full_date)
+                     ^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\gpuzio\Desktop\VisuaLex_Beta\tools\text_op.py", line 69, in parse_date
+    raise ValueError("Formato data non valido")
+ValueError: Formato data non valido
+2024-07-07 15:36:51,561 ERROR Error in fetch_data: Invalid URL '(None, None)': No scheme supplied. Perhaps you meant https://(None, None)?
 Traceback (most recent call last):
-  File "c:\Users\gpuzio\Desktop\VisuaLex_Beta\app.py", line 63, in fetch_data
-    normavisitata = NormaVisitata(
-                    ^^^^^^^^^^^^^^
-  File "c:\Users\gpuzio\Desktop\VisuaLex_Beta\tools\norma.py", line 81, in __init__
-    super().__init__(norma.tipo_atto_str, norma.data, norma.numero_atto, norma.url, norma.tree)
-  File "c:\Users\gpuzio\Desktop\VisuaLex_Beta\tools\norma.py", line 34, in __init__
-    logging.info(f"Norma initialized: {self}")
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "c:\Users\gpuzio\Desktop\VisuaLex_Beta\tools\norma.py", line 95, in __str__
-    if self.numero_articolo:
-       ^^^^^^^^^^^^^^^^^^^^
-AttributeError: 'NormaVisitata' object has no attribute 'numero_articolo'
-2024-07-07 04:27:05,332 INFO 127.0.0.1 - - [07/Jul/2024 04:27:05] "POST /fetch_norm HTTP/1.1" 200 -
-2024-07-07 04:30:43,365 INFO  * Detected change in 'c:\\Users\\gpuzio\\Desktop\\VisuaLex_Beta\\tools\\norma.py', reloading
-2024-07-07 04:30:43,421 INFO  * Restarting with stat
-2024-07-07 04:30:43,807 INFO Starting Flask app in debug mode
-2024-07-07 04:30:43,816 WARNING  * Debugger is active!
-2024-07-07 04:30:43,819 INFO  * Debugger PIN: 122-828-192
-2024-07-07 04:31:46,425 INFO  * Detected change in 'c:\\Users\\gpuzio\\Desktop\\VisuaLex_Beta\\tools\\treextractor.py', reloading
-2024-07-07 04:31:46,480 INFO  * Restarting with stat
-2024-07-07 04:31:46,846 INFO Starting Flask app in debug mode
-2024-07-07 04:31:46,856 WARNING  * Debugger is active!
-2024-07-07 04:31:46,858 INFO  * Debugger PIN: 122-828-192
-2024-07-07 04:31:49,466 INFO Received data for fetch_norm: {'act_type': 'costituzione', 'date': '', 'act_number': '', 'article': '1', 'version': 'vigente', 'version_date': '', 'comma': ''}
-2024-07-07 04:31:49,466 INFO Initializing Norma with tipo_atto: costituzione, data: , numero_atto: , url: None
-2024-07-07 04:31:49,467 INFO Normalizing act type: costituzione, search: True, source: normattiva
-2024-07-07 04:31:49,467 INFO Normalized act type found: costituzione
-2024-07-07 04:31:49,467 INFO Normalizing act type: costituzione, search: False, source: normattiva
-2024-07-07 04:31:49,468 INFO Normalized act type found: costituzione
-2024-07-07 04:31:49,468 INFO Starting generate_urn with act_type: costituzione, date: , act_number: , article: None, extension: None, version: None, version_date: None, urn_flag: False
-2024-07-07 04:31:49,468 INFO Found URN in codici_urn: /uri-res/N2Ls?urn:nir:stato:costituzione
-2024-07-07 04:31:49,469 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:/uri-res/N2Ls?urn:nir:stato:costituzione
-2024-07-07 04:31:50,912 INFO Norma initialized: costituzione
-2024-07-07 04:31:50,912 INFO Initializing NormaVisitata with norma: costituzione, numero_articolo: 1, versione: vigente, data_versione: , urn: None
-2024-07-07 04:31:50,912 INFO Initializing Norma with tipo_atto: costituzione, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:/uri-res/N2Ls?urn:nir:stato:costituzione
-2024-07-07 04:31:50,913 ERROR Error in fetch_data: 'NormaVisitata' object has no attribute 'numero_articolo'
-Traceback (most recent call last):
-  File "c:\Users\gpuzio\Desktop\VisuaLex_Beta\app.py", line 63, in fetch_data
-    normavisitata = NormaVisitata(
-                    ^^^^^^^^^^^^^^
-  File "c:\Users\gpuzio\Desktop\VisuaLex_Beta\tools\norma.py", line 81, in __init__
-    super().__init__(tipo_atto=norma.tipo_atto_str, data=norma.data, numero_atto=norma.numero_atto, url=norma.url, tree=norma.tree)
-  File "c:\Users\gpuzio\Desktop\VisuaLex_Beta\tools\norma.py", line 34, in __init__
-    logging.info(f"Norma initialized: {self}")
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "c:\Users\gpuzio\Desktop\VisuaLex_Beta\tools\norma.py", line 95, in __str__
-    if self.numero_articolo:
-       ^^^^^^^^^^^^^^^^^^^^
-AttributeError: 'NormaVisitata' object has no attribute 'numero_articolo'
-2024-07-07 04:31:50,915 INFO 127.0.0.1 - - [07/Jul/2024 04:31:50] "POST /fetch_norm HTTP/1.1" 200 -
-2024-07-07 04:32:59,208 INFO  * Detected change in 'c:\\Users\\gpuzio\\Desktop\\VisuaLex_Beta\\tools\\norma.py', reloading
-2024-07-07 04:32:59,263 INFO  * Restarting with stat
-2024-07-07 04:32:59,609 INFO Starting Flask app in debug mode
-2024-07-07 04:32:59,618 WARNING  * Debugger is active!
-2024-07-07 04:32:59,621 INFO  * Debugger PIN: 122-828-192
-2024-07-07 04:35:10,453 INFO  * Detected change in 'c:\\Users\\gpuzio\\Desktop\\VisuaLex_Beta\\tools\\norma.py', reloading
-2024-07-07 04:35:10,515 INFO  * Restarting with stat
-2024-07-07 04:35:10,871 INFO Starting Flask app in debug mode
-2024-07-07 04:35:10,879 WARNING  * Debugger is active!
-2024-07-07 04:35:10,882 INFO  * Debugger PIN: 122-828-192
-2024-07-07 04:35:40,989 INFO  * Detected change in 'c:\\Users\\gpuzio\\Desktop\\VisuaLex_Beta\\tools\\norma.py', reloading
-2024-07-07 04:35:41,048 INFO  * Restarting with stat
-2024-07-07 04:35:41,390 INFO Starting Flask app in debug mode
-2024-07-07 04:35:41,399 WARNING  * Debugger is active!
-2024-07-07 04:35:41,402 INFO  * Debugger PIN: 122-828-192
-2024-07-07 04:36:13,272 INFO Received data for fetch_norm: {'act_type': 'costituzione', 'date': '', 'act_number': '', 'article': '1', 'version': 'vigente', 'version_date': '', 'comma': ''}
-2024-07-07 04:36:13,272 INFO Initializing Norma with tipo_atto: costituzione, data: , numero_atto: , url: None
-2024-07-07 04:36:13,273 INFO Normalizing act type: costituzione, search: True, source: normattiva
-2024-07-07 04:36:13,273 INFO Normalized act type found: costituzione
-2024-07-07 04:36:13,273 INFO Normalizing act type: costituzione, search: False, source: normattiva
-2024-07-07 04:36:13,274 INFO Normalized act type found: costituzione
-2024-07-07 04:36:13,274 INFO Starting generate_urn with act_type: costituzione, date: , act_number: , article: None, extension: None, version: None, version_date: None, urn_flag: False
-2024-07-07 04:36:13,274 INFO Found URN in codici_urn: /uri-res/N2Ls?urn:nir:stato:costituzione
-2024-07-07 04:36:13,275 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:/uri-res/N2Ls?urn:nir:stato:costituzione
-2024-07-07 04:36:14,655 INFO Norma initialized: costituzione
-2024-07-07 04:36:14,656 INFO Initializing NormaVisitata with norma: costituzione, numero_articolo: 1, versione: vigente, data_versione: , urn: None
-2024-07-07 04:36:14,656 INFO Initializing Norma with tipo_atto: costituzione, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:/uri-res/N2Ls?urn:nir:stato:costituzione
-2024-07-07 04:36:14,657 ERROR Error in fetch_data: 'NormaVisitata' object has no attribute 'numero_articolo'
-Traceback (most recent call last):
-  File "c:\Users\gpuzio\Desktop\VisuaLex_Beta\app.py", line 63, in fetch_data
-    normavisitata = NormaVisitata(
-                    ^^^^^^^^^^^^^^
-  File "c:\Users\gpuzio\Desktop\VisuaLex_Beta\tools\norma.py", line 81, in __init__
-    super().__init__(tipo_atto=norma.tipo_atto_str, data=norma.data, numero_atto=norma.numero_atto, url=norma.url, tree=norma.tree)
-  File "c:\Users\gpuzio\Desktop\VisuaLex_Beta\tools\norma.py", line 34, in __init__
-    logging.info(f"Norma initialized: {self}")
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "c:\Users\gpuzio\Desktop\VisuaLex_Beta\tools\norma.py", line 95, in __str__
-    if self.numero_articolo:
-       ^^^^^^^^^^^^^^^^^^^^
-AttributeError: 'NormaVisitata' object has no attribute 'numero_articolo'
-2024-07-07 04:36:14,659 INFO 127.0.0.1 - - [07/Jul/2024 04:36:14] "POST /fetch_norm HTTP/1.1" 200 -
-2024-07-07 04:38:06,963 INFO  * Detected change in 'c:\\Users\\gpuzio\\Desktop\\VisuaLex_Beta\\tools\\norma.py', reloading
-2024-07-07 04:38:07,015 INFO  * Restarting with stat
-2024-07-07 04:38:07,379 INFO Starting Flask app in debug mode
-2024-07-07 04:38:07,387 WARNING  * Debugger is active!
-2024-07-07 04:38:07,390 INFO  * Debugger PIN: 122-828-192
-2024-07-07 04:38:20,528 INFO 127.0.0.1 - - [07/Jul/2024 04:38:20] "GET / HTTP/1.1" 200 -
-2024-07-07 04:38:20,644 INFO 127.0.0.1 - - [07/Jul/2024 04:38:20] "[36mGET /static/css/styles.css HTTP/1.1[0m" 304 -
-2024-07-07 04:38:20,646 INFO 127.0.0.1 - - [07/Jul/2024 04:38:20] "[36mGET /static/js/script.js HTTP/1.1[0m" 304 -
-2024-07-07 04:38:20,652 INFO 127.0.0.1 - - [07/Jul/2024 04:38:20] "[33mGET /history HTTP/1.1[0m" 404 -
-2024-07-07 04:38:22,679 INFO Received data for fetch_norm: {'act_type': 'costituzione', 'date': '', 'act_number': '', 'article': '1', 'version': 'vigente', 'version_date': '', 'comma': ''}
-2024-07-07 04:38:22,679 INFO Initializing Norma with tipo_atto: costituzione, data: , numero_atto: , url: None
-2024-07-07 04:38:22,680 INFO Normalizing act type: costituzione, search: True, source: normattiva
-2024-07-07 04:38:22,680 INFO Normalized act type found: costituzione
-2024-07-07 04:38:22,680 INFO Normalizing act type: costituzione, search: False, source: normattiva
-2024-07-07 04:38:22,680 INFO Normalized act type found: costituzione
-2024-07-07 04:38:22,681 INFO Starting generate_urn with act_type: costituzione, date: , act_number: , article: None, extension: None, version: None, version_date: None, urn_flag: False
-2024-07-07 04:38:22,681 INFO Found URN in codici_urn: /uri-res/N2Ls?urn:nir:stato:costituzione
-2024-07-07 04:38:22,681 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:/uri-res/N2Ls?urn:nir:stato:costituzione
-2024-07-07 04:38:23,859 INFO Norma initialized: costituzione
-2024-07-07 04:38:23,859 INFO Starting generate_urn with act_type: costituzione, date: , act_number: , article: 1, extension: None, version: vigente, version_date: , urn_flag: True
-2024-07-07 04:38:23,860 INFO Found URN in codici_urn: /uri-res/N2Ls?urn:nir:stato:costituzione
-2024-07-07 04:38:23,860 INFO Article part of URN: /uri-res/N2Ls?urn:nir:stato:costituzione~art1
-2024-07-07 04:38:23,860 INFO Version part of URN: /uri-res/N2Ls?urn:nir:stato:costituzione~art1!vig=
-2024-07-07 04:38:23,861 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:/uri-res/N2Ls?urn:nir:stato:costituzione~art1!vig=
-2024-07-07 04:38:23,861 INFO Initializing Norma with tipo_atto: costituzione, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:/uri-res/N2Ls?urn:nir:stato:costituzione
-2024-07-07 04:38:23,861 INFO Norma initialized: costituzione art. 1
-2024-07-07 04:38:23,862 INFO NormaVisitata initialized: costituzione art. 1
-2024-07-07 04:38:23,862 INFO Created NormaVisitata: costituzione art. 1
-2024-07-07 04:38:23,862 INFO Getting URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:/uri-res/N2Ls?urn:nir:stato:costituzione~art1!vig=
-2024-07-07 04:38:23,863 INFO Fetching HTML content from URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:/uri-res/N2Ls?urn:nir:stato:costituzione~art1!vig=
-2024-07-07 04:38:24,772 INFO HTML content fetched successfully
-2024-07-07 04:38:24,773 INFO Extracting article from HTML. Article number: 1, Comma: None
-2024-07-07 04:38:24,804 INFO Found articles with IDs: []
-2024-07-07 04:38:24,804 WARNING Article number 1 not found.
-2024-07-07 04:38:24,805 INFO Extracted article text: Nessun articolo trovato.
-2024-07-07 04:38:24,805 INFO Getting URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:/uri-res/N2Ls?urn:nir:stato:costituzione~art1!vig=
-2024-07-07 04:38:24,805 INFO Appended NormaVisitata to history. Current history size: 1
-2024-07-07 04:38:24,805 INFO 127.0.0.1 - - [07/Jul/2024 04:38:24] "POST /fetch_norm HTTP/1.1" 200 -
-2024-07-07 04:38:24,809 ERROR Error in fetch_tree: 'norma_data'
-Traceback (most recent call last):
-  File "c:\Users\gpuzio\Desktop\VisuaLex_Beta\app.py", line 115, in fetch_tree
-    norma_data = data['norma_data']
-                 ~~~~^^^^^^^^^^^^^^
-KeyError: 'norma_data'
-2024-07-07 04:38:24,811 INFO 127.0.0.1 - - [07/Jul/2024 04:38:24] "[33mGET /history HTTP/1.1[0m" 404 -
-2024-07-07 04:38:24,811 INFO 127.0.0.1 - - [07/Jul/2024 04:38:24] "POST /fetch_tree HTTP/1.1" 200 -
-2024-07-07 04:40:20,746 INFO  * Detected change in 'c:\\Users\\gpuzio\\Desktop\\VisuaLex_Beta\\app.py', reloading
-2024-07-07 04:40:20,807 INFO  * Restarting with stat
-2024-07-07 04:40:21,170 INFO Starting Flask app in debug mode
-2024-07-07 04:40:21,179 WARNING  * Debugger is active!
-2024-07-07 04:40:21,181 INFO  * Debugger PIN: 122-828-192
+  File "c:\Users\gpuzio\Desktop\VisuaLex_Beta\app.py", line 65, in fetch_data
+    norma=Norma(tipo_atto=act_type, data=date, numero_atto=act_number),
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\gpuzio\Desktop\VisuaLex_Beta\tools\norma.py", line 32, in __init__
+    self.tree = tree if tree else get_tree(self.url)
+                                  ^^^^^^^^^^^^^^^^^^
+  File "c:\Users\gpuzio\Desktop\VisuaLex_Beta\tools\treextractor.py", line 17, in get_tree
+    response = requests.get(normurn)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gpuzio\Desktop\VisuaLex_Beta\.venv\Lib\site-packages\requests\api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gpuzio\Desktop\VisuaLex_Beta\.venv\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gpuzio\Desktop\VisuaLex_Beta\.venv\Lib\site-packages\requests\sessions.py", line 575, in request
+    prep = self.prepare_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gpuzio\Desktop\VisuaLex_Beta\.venv\Lib\site-packages\requests\sessions.py", line 484, in prepare_request
+    p.prepare(
+  File "C:\Users\gpuzio\Desktop\VisuaLex_Beta\.venv\Lib\site-packages\requests\models.py", line 367, in prepare
+    self.prepare_url(url, params)
+  File "C:\Users\gpuzio\Desktop\VisuaLex_Beta\.venv\Lib\site-packages\requests\models.py", line 438, in prepare_url
+    raise MissingSchema(
+requests.exceptions.MissingSchema: Invalid URL '(None, None)': No scheme supplied. Perhaps you meant https://(None, None)?
+2024-07-07 15:36:51,562 INFO 127.0.0.1 - - [07/Jul/2024 15:36:51] "POST /fetch_norm HTTP/1.1" 200 -
+2024-07-07 15:38:50,535 INFO  * Detected change in 'c:\\Users\\gpuzio\\Desktop\\VisuaLex_Beta\\tools\\urngenerator.py', reloading
+2024-07-07 15:38:54,663 INFO  * Restarting with stat
+2024-07-07 15:38:55,199 INFO Starting Flask app in debug mode
+2024-07-07 15:38:55,208 WARNING  * Debugger is active!
+2024-07-07 15:38:55,211 INFO  * Debugger PIN: 420-641-266
+2024-07-07 15:38:55,402 INFO Received data for fetch_norm: {'act_type': 'legge', 'date': '1990', 'act_number': '241', 'article': '1', 'version': 'vigente', 'version_date': '', 'comma': ''}
+2024-07-07 15:38:55,402 INFO Initializing Norma with tipo_atto: legge, data: 1990, numero_atto: 241, url: None
+2024-07-07 15:38:55,403 INFO Normalizing act type: legge, search: True, source: normattiva
+2024-07-07 15:38:55,403 INFO Normalized act type found: legge
+2024-07-07 15:38:55,403 INFO Normalizing act type: legge, search: False, source: normattiva
+2024-07-07 15:38:55,404 INFO Normalized act type found: legge
+2024-07-07 15:38:55,404 INFO Starting generate_urn with act_type: legge, date: 1990, act_number: 241, article: None, extension: None, version: None, version_date: None, urn_flag: False
+2024-07-07 15:38:55,404 INFO Starting complete_date with act_type: legge, date: 1990, act_number: 241

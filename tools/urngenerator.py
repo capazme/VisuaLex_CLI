@@ -30,22 +30,22 @@ def complete_date(act_type, date, act_number):
     """
     logging.info(f"Starting complete_date with act_type: {act_type}, date: {date}, act_number: {act_number}")
     try:
-        setup_driver()
-        drivers[0].get("https://www.normattiva.it/")
-        search_box = drivers[0].find_element(By.CSS_SELECTOR, "#testoRicerca")
+
+        driver = setup_driver()
+        driver.get("https://www.normattiva.it/")
+        search_box = driver.find_element(By.CSS_SELECTOR, "#testoRicerca")
         search_criteria = f"{act_type} {act_number} {date}"
         logging.info(f"Search criteria: {search_criteria}")
         
         search_box.send_keys(search_criteria)
-        WebDriverWait(drivers[0], 5).until(EC.element_to_be_clickable((By.XPATH, "//*[@id=\"button-3\"]"))).click()
-        elemento = WebDriverWait(drivers[0], 10).until(EC.presence_of_element_located((By.XPATH, '//*[@id="heading_1"]/p[1]/a')))
+        WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.XPATH, "//*[@id=\"button-3\"]"))).click()
+        elemento = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, '//*[@id="heading_1"]/p[1]/a')))
         elemento_text = elemento.text
         logging.info(f"Element text found: {elemento_text}")
         
         data_completa = estrai_data_da_denominazione(elemento_text)
         logging.info(f"Completed date: {data_completa}")
         
-        close_driver()
         return data_completa
     except Exception as e:
         logging.error(f"Error in complete_date: {e}", exc_info=True)
@@ -124,6 +124,7 @@ def generate_urn(act_type, date=None, act_number=None, article=None, extension=N
     
     return result
 
+
 def urn_to_filename(urn):
     """
     Converts a URN to a filename.
@@ -134,17 +135,25 @@ def urn_to_filename(urn):
     filename -- The generated filename
     """
     logging.info(f"Starting urn_to_filename with URN: {urn}")
-    parts = urn.split(':')
-    if len(parts) < 3:
+    
+    # Estrarre la parte dell'URN tra 'stato:' e '~'
+    try:
+        act_type_section = urn.split('stato:')[1].split('~')[0]
+    except IndexError:
         raise ValueError("Invalid URN format")
-    act_type = parts[2]
-    if len(parts) > 3:
-        date_number = parts[3].split(';')
-        if len(date_number) == 2:
-            date, number = date_number
-            filename = f"{number}_{date}.pdf"
-            logging.info(f"Generated filename: {filename}")
-            return filename
-    filename = f"{act_type}.pdf"
+    
+    # Gestire il caso in cui `act_type_section` contenga data e numero
+    if ':' in act_type_section and ';' in act_type_section:
+        type_and_date, number = act_type_section.split(';')
+        act_type, date = type_and_date.split(':')
+        year = date.split('-')[0]  # Estrarre solo l'anno dalla data
+        filename = f"{number}_{year}.pdf"
+        logging.info(f"Generated filename: {filename}")
+        return filename
+    
+    # Capitalizzare la prima lettera di `act_type_section`
+    act_type = act_type_section.split('/')[-1]  # Rimuovere eventuali prefissi come '/'
+    filename = f"{act_type.capitalize()}.pdf"
     logging.info(f"Generated filename: {filename}")
     return filename
+

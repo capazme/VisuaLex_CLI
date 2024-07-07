@@ -17,6 +17,7 @@ document.getElementById('scrape-form').addEventListener('submit', async function
     setLoading(true);
 
     try {
+        console.log('Sending request to /fetch_norm with data:', data);
         const response = await fetch('/fetch_norm', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -25,6 +26,8 @@ document.getElementById('scrape-form').addEventListener('submit', async function
         const result = await response.json();
         setLoading(false);
 
+        console.log('Received response from /fetch_norm:', result);
+        
         const normaDataContainer = document.getElementById('norma-data');
         const resultContainer = document.getElementById('result');
 
@@ -36,7 +39,7 @@ document.getElementById('scrape-form').addEventListener('submit', async function
 
             if (lastFetchedUrl !== result.norma_data.url) {
                 lastFetchedUrl = result.norma_data.url;
-                fetchTree(result.norma_data.url);
+                setArticleTree(result.tree);
             }
 
             // Aggiorna la cronologia dopo la ricerca
@@ -49,6 +52,7 @@ document.getElementById('scrape-form').addEventListener('submit', async function
 });
 
 function displayNormaData(normaData, resultText) {
+    console.log('Displaying norma data:', normaData);
     const normaDataContainer = document.getElementById('norma-data');
     normaDataContainer.innerHTML = `
         <h2>Informazioni della Norma Visitata</h2>
@@ -56,7 +60,10 @@ function displayNormaData(normaData, resultText) {
         <p><strong>Data:</strong> ${normaData.data}</p>
         <p><strong>Numero atto:</strong> ${normaData.numero_atto}</p>
         <p><strong>Numero articolo:</strong> ${normaData.numero_articolo}</p>
+        <p><strong>Versione:</strong> ${normaData.versione}</p>
+        <p><strong>Data versione:</strong> ${normaData.data_versione}</p>
         <p><strong>URL:</strong> <a href="${normaData.url}" target="_blank">${normaData.url}</a></p>
+        <p><strong>Timestamp:</strong> ${normaData.timestamp}</p>
     `;
     const resultContainer = document.getElementById('result');
     resultContainer.textContent = resultText;
@@ -65,27 +72,22 @@ function displayNormaData(normaData, resultText) {
 /*******************************
  * PARTE 2: GESTIONE DEGLI ARTICOLI E URL
  *******************************/
-async function fetchTree(urn) {
-    try {
-        const response = await fetch('/fetch_tree', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ urn })
-        });
-        const result = await response.json();
-        if (result.error) {
-            handleError(result.error);
-        } else {
-            setArticleTree(result.tree);
-        }
-    } catch (error) {
-        handleError(error);
-    }
-}
-
 function setArticleTree(tree) {
-    articleTree = tree;
-    console.log(articleTree);
+    console.log('Setting article tree:', tree);
+
+    // Assicurati che `tree` sia un array e prendi il primo elemento
+    if (Array.isArray(tree) && Array.isArray(tree[0])) {
+        articleTree = tree[0].map(item => {
+            if (typeof item === 'object' && item !== null) {
+                return Object.keys(item)[0];
+            }
+            return item;
+        });
+    } else {
+        console.error('Invalid tree format:', tree);
+    }
+
+    console.log('Formatted article tree:', articleTree);
 }
 
 /*******************************
@@ -108,9 +110,11 @@ document.addEventListener('DOMContentLoaded', function() {
         collapsibleContent: document.querySelector('.content')
     };
 
+    console.log('Initializing version date input');
     initializeVersionDateInput(elements.versionVigente, elements.versionDateInput);
     setupVersionDateToggle(elements.versionVigente, elements.versionOriginale, elements.versionDateInput);
 
+    console.log('Setting up article buttons');
     setupArticleButtons(elements.decrementButton, elements.incrementButton, elements.articleInput, elements.actTypeInput);
     setupPdfButton(elements.viewPdfButton, elements.pdfFrame, elements.downloadPdfButton, elements.fullscreenButton, elements.collapsibleButton, elements.collapsibleContent);
 
@@ -119,6 +123,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function initializeVersionDateInput(versionVigente, versionDateInput) {
+    console.log('Initializing version date input state');
     if (versionVigente.checked) {
         versionDateInput.disabled = false;
         versionDateInput.style.opacity = 1;
@@ -129,6 +134,7 @@ function initializeVersionDateInput(versionVigente, versionDateInput) {
 }
 
 function setupVersionDateToggle(versionVigente, versionOriginale, versionDateInput) {
+    console.log('Setting up version date toggle');
     versionVigente.addEventListener('change', () => {
         versionDateInput.disabled = false;
         versionDateInput.style.opacity = 1;
@@ -143,6 +149,7 @@ function setupVersionDateToggle(versionVigente, versionOriginale, versionDateInp
 
 function setupArticleButtons(decrementButton, incrementButton, articleInput, actTypeInput) {
     if (decrementButton && incrementButton && articleInput) {
+        console.log('Setting up article buttons');
         decrementButton.addEventListener('click', () => updateArticleInput(articleInput, actTypeInput, decrementArticle));
         incrementButton.addEventListener('click', () => updateArticleInput(articleInput, actTypeInput, incrementArticle));
     }
@@ -150,6 +157,7 @@ function setupArticleButtons(decrementButton, incrementButton, articleInput, act
 
 function updateArticleInput(articleInput, actTypeInput, updateFunction) {
     let currentValue = articleInput.value;
+    console.log('Updating article input from:', currentValue);
     if (!actTypeInput.value) {
         currentValue = '1'; // Imposta l'articolo a 1 se il tipo di atto non è selezionato
     } else {
@@ -158,6 +166,7 @@ function updateArticleInput(articleInput, actTypeInput, updateFunction) {
     articleInput.value = currentValue;
     articleInput.focus();
     articleInput.dispatchEvent(new Event('input'));
+    console.log('Updated article input to:', currentValue);
 }
 
 function incrementArticle(article) {
@@ -169,16 +178,31 @@ function decrementArticle(article) {
 }
 
 function getUpdatedArticle(article, direction) {
+    console.log('Updating article:', article, 'direction:', direction);
     if (!validateArticleInput(article)) {
         return '1'; // Imposta l'articolo a 1 se l'input non è valido
     }
+
+    // Trova l'indice dell'articolo corrente
     let index = articleTree.indexOf(article);
-    if (index < 0) index = 0;
-    else index = (index + direction + articleTree.length) % articleTree.length;
+    console.log('Current article index:', index);
+
+    if (index < 0) {
+        console.warn('Article not found in articleTree:', article);
+        index = 0;
+    } else {
+        // Calcola il nuovo indice
+        index = (index + direction + articleTree.length) % articleTree.length;
+    }
+    console.log('New article index:', index);
+
+    // Ritorna l'articolo all'indice aggiornato
     return articleTree[index];
 }
 
+
 function setupPdfButton(viewPdfButton, pdfFrame, downloadPdfButton, fullscreenButton, collapsibleButton, collapsibleContent) {
+    console.log('Setting up PDF button');
     viewPdfButton.addEventListener('click', async function() {
         if (!lastUrn) {
             alert('Per favore completa prima una ricerca.');
@@ -188,6 +212,7 @@ function setupPdfButton(viewPdfButton, pdfFrame, downloadPdfButton, fullscreenBu
         setLoading(true);
 
         try {
+            console.log('Sending request to /export_pdf with URN:', lastUrn);
             const response = await fetch('/export_pdf', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -203,6 +228,7 @@ function setupPdfButton(viewPdfButton, pdfFrame, downloadPdfButton, fullscreenBu
 
             setLoading(false);
 
+            console.log('PDF URL:', pdfUrl);
             pdfFrame.src = pdfUrl + "#" + new Date().getTime(); // Aggiungi un timestamp per evitare il caching
             pdfFrame.style.display = 'block';
             
@@ -220,6 +246,7 @@ function setupPdfButton(viewPdfButton, pdfFrame, downloadPdfButton, fullscreenBu
 }
 
 function setupDownloadAndFullscreen(downloadPdfButton, fullscreenButton, pdfFrame, pdfUrl) {
+    console.log('Setting up download and fullscreen buttons');
     downloadPdfButton.addEventListener('click', () => {
         const a = document.createElement('a');
         a.href = pdfUrl;
@@ -238,6 +265,7 @@ function setupDownloadAndFullscreen(downloadPdfButton, fullscreenButton, pdfFram
 }
 
 function toggleCollapsibleContent() {
+    console.log('Toggling collapsible content');
     this.classList.toggle('active');
     const content = this.nextElementSibling;
     content.style.display = content.style.display === 'block' ? 'none' : 'block';
@@ -263,7 +291,9 @@ function setLoading(isLoading) {
 }
 
 function validateArticleInput(article) {
+    console.log('Validating article input:', article);
     if (!article || !articleTree.includes(article)) {
+        console.error('Invalid article:', article);
         alert('Articolo non valido. Per favore inserisci un articolo valido.');
         return false;
     }
@@ -271,8 +301,14 @@ function validateArticleInput(article) {
 }
 
 function updateHistory() {
+    console.log('Updating history');
     fetch('/history')
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok.');
+            }
+            return response.json();
+        })
         .then(history => {
             const historyList = document.getElementById('history-list');
             historyList.innerHTML = '';
@@ -288,6 +324,7 @@ function updateHistory() {
                 `;
                 historyList.appendChild(listItem);
             });
+            console.log('History updated:', history);
         })
         .catch(error => {
             console.error('Errore nel recupero della cronologia:', error);

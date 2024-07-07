@@ -45,7 +45,8 @@ def fetch_data():
     {
         "result": "text of the article",
         "urn": "URN of the act",
-        "norma_data": { ... }
+        "norma_data": { ... },
+        "tree": { ... }
     }
     """
     try:
@@ -70,13 +71,17 @@ def fetch_data():
 
         # Extract article text
         norma_art_text = extract_html_article(normavisitata)
+        print("____", norma_art_text)
         logging.info(f"Extracted article text: {norma_art_text}")
 
         norma_data = normavisitata.to_dict()
+        tree = normavisitata.tree
+        
         response = {
             'result': norma_art_text,
             'urn': normavisitata.get_urn(),
-            'norma_data': norma_data
+            'norma_data': norma_data,
+            'tree': tree
         }
         
         # Append the NormaVisitata instance to history
@@ -88,46 +93,22 @@ def fetch_data():
         logging.error(f"Error in fetch_data: {e}", exc_info=True)
         return jsonify({'error': str(e)})
 
-@app.route('/fetch_tree', methods=['POST'])
-def fetch_tree():
+@app.route('/history', methods=['GET'])
+def get_history():
     """
-    Endpoint to fetch the tree structure of a legal norm.
-    Expected JSON input:
-    {
-        "norma_data": { ... }
-    }
+    Endpoint to get the history of visited norms.
     Returns:
     {
-        "tree": { ... }
+        "history": [ { "tipo_atto": "...", "data": "...", ... }, ... ]
     }
     """
     try:
-        data = request.get_json()
-        logging.info(f"Received data for fetch_tree: {data}")
-
-        if 'norma_data' not in data:
-            logging.error("'norma_data' key not found in the request payload")
-            return jsonify({'error': "'norma_data' key not found in the request payload"}), 400
-
-        norma_data = data['norma_data']
-        norma_visitata = NormaVisitata.from_dict(norma_data)
-        logging.info(f"Created NormaVisitata from dict: {norma_visitata}")
-
-        if norma_visitata.tree:
-            tree = norma_visitata.tree
-            logging.info("Using pre-fetched tree from NormaVisitata object")
-        else:
-            tree = get_tree_from_urn(norma_visitata.get_url())
-            logging.info("Fetched tree from URN")
-
-        return jsonify({'tree': tree})
+        logging.info("Fetching history")
+        history_list = [norma.to_dict() for norma in history]
+        return jsonify(history_list)
     except Exception as e:
-        logging.error(f"Error in fetch_tree: {e}", exc_info=True)
-        return jsonify({'error': str(e)})
-
-def get_tree_from_urn(urn):
-    # Dummy implementation of get_tree_from_urn, replace with actual logic
-    return {"dummy_tree": urn}
+        logging.error(f"Error in get_history: {e}", exc_info=True)
+        return jsonify({'error': str(e)}), 500
 
 
 @app.route('/export_pdf', methods=['POST'])
@@ -147,6 +128,7 @@ def export_pdf():
         logging.info(f"Received data for export_pdf: {urn}")
 
         filename = urngenerator.urn_to_filename(urn)
+        
         if not filename:
             raise ValueError("Invalid URN")
 

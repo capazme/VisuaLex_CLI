@@ -1,6 +1,7 @@
 download
 __pycache__
 test.py
-\* .log
+app.log
+norma.log
 .DS_Store
 .venv
