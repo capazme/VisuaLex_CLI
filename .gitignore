@@ -1,7 +1,8 @@
 download
 __pycache__
 test.py
-app.log
-norma.log
 .DS_Store
 .venv
+brocardi_scraper.log
+app.log
+norma.log

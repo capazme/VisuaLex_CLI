@@ -92,6 +92,13 @@
             <div id="norma-data"></div>
             <div id="result"></div>
 
+            <div id="brocardi-info-container" style="display: none;">
+                <button class="collapsible">Brocardi Info</button>
+                <div class="content">
+                    <div id="brocardi-info"></div>
+                </div>
+            </div>
+
             <div class="history-container">
                 <h2>Cronologia delle ricerche</h2>
                 <ul id="history-list"></ul>
@@ -107,6 +114,7 @@
             </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/interactjs@1.10.11/dist/interact.min.js"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>

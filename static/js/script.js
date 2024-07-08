@@ -5,6 +5,7 @@ let lastUrn = ''; // Variabile per memorizzare l'URN ottenuto
 let articleTree = [];
 let lastFetchedUrl = '';
 
+// Listener per la sottomissione del form
 document.getElementById('scrape-form').addEventListener('submit', async function(e) {
     e.preventDefault();
 
@@ -30,6 +31,7 @@ document.getElementById('scrape-form').addEventListener('submit', async function
         
         const normaDataContainer = document.getElementById('norma-data');
         const resultContainer = document.getElementById('result');
+        const brocardiInfoContainer = document.getElementById('brocardi-info-container');
 
         if (result.error) {
             handleError(result.error, resultContainer);
@@ -44,6 +46,14 @@ document.getElementById('scrape-form').addEventListener('submit', async function
 
             // Aggiorna la cronologia dopo la ricerca
             updateHistory();
+
+            // Mostra le informazioni di Brocardi
+            if (result.brocardi_info) {
+                displayBrocardiInfo(result.brocardi_info);
+                brocardiInfoContainer.style.display = 'block';
+            } else {
+                brocardiInfoContainer.style.display = 'none';
+            }
         }
     } catch (error) {
         setLoading(false);
@@ -51,6 +61,7 @@ document.getElementById('scrape-form').addEventListener('submit', async function
     }
 });
 
+// Funzione per visualizzare i dati della norma
 function displayNormaData(normaData, resultText) {
     console.log('Displaying norma data:', normaData);
     const normaDataContainer = document.getElementById('norma-data');
@@ -67,6 +78,20 @@ function displayNormaData(normaData, resultText) {
     `;
     const resultContainer = document.getElementById('result');
     resultContainer.textContent = resultText;
+}
+
+// Funzione per visualizzare le informazioni di Brocardi
+function displayBrocardiInfo(info) {
+    console.log('Displaying brocardi info:', info);
+    const brocardiInfoContainer = document.getElementById('brocardi-info');
+    brocardiInfoContainer.innerHTML = `
+        <h2>Informazioni aggiuntive</h2>
+        ${info.position ? `<p><strong>Posizione:</strong> ${info.position}</p>` : ''}
+        ${info.info.Brocardi ? `<h3>Brocardi:</h3><ul>${info.info.Brocardi.map(text => `<li>${text}</li>`).join('')}</ul>` : ''}
+        ${info.info.Ratio ? `<h3>Ratio:</h3><p>${info.info.Ratio}</p>` : ''}
+        ${info.info.Spiegazione ? `<h3>Spiegazione:</h3><p>${info.info.Spiegazione}</p>` : ''}
+        ${info.info.Massime ? `<h3>Massime:</h3><p>${info.info.Massime}</p>` : ''}
+    `;
 }
 
 /*******************************
@@ -122,6 +147,7 @@ document.addEventListener('DOMContentLoaded', function() {
     updateHistory();
 });
 
+// Funzione per inizializzare lo stato dell'input della data di versione
 function initializeVersionDateInput(versionVigente, versionDateInput) {
     console.log('Initializing version date input state');
     if (versionVigente.checked) {
@@ -133,6 +159,7 @@ function initializeVersionDateInput(versionVigente, versionDateInput) {
     }
 }
 
+// Funzione per configurare il toggle della data di versione
 function setupVersionDateToggle(versionVigente, versionOriginale, versionDateInput) {
     console.log('Setting up version date toggle');
     versionVigente.addEventListener('change', () => {
@@ -147,6 +174,7 @@ function setupVersionDateToggle(versionVigente, versionOriginale, versionDateInp
     });
 }
 
+// Funzione per configurare i bottoni per l'articolo
 function setupArticleButtons(decrementButton, incrementButton, articleInput, actTypeInput) {
     if (decrementButton && incrementButton && articleInput) {
         console.log('Setting up article buttons');
@@ -155,6 +183,7 @@ function setupArticleButtons(decrementButton, incrementButton, articleInput, act
     }
 }
 
+// Funzione per aggiornare l'input dell'articolo
 function updateArticleInput(articleInput, actTypeInput, updateFunction) {
     let currentValue = articleInput.value;
     console.log('Updating article input from:', currentValue);
@@ -169,6 +198,7 @@ function updateArticleInput(articleInput, actTypeInput, updateFunction) {
     console.log('Updated article input to:', currentValue);
 }
 
+// Funzioni per incrementare e decrementare l'articolo
 function incrementArticle(article) {
     return getUpdatedArticle(article, 1);
 }
@@ -177,6 +207,7 @@ function decrementArticle(article) {
     return getUpdatedArticle(article, -1);
 }
 
+// Funzione per ottenere l'articolo aggiornato
 function getUpdatedArticle(article, direction) {
     console.log('Updating article:', article, 'direction:', direction);
     if (!validateArticleInput(article)) {
@@ -200,7 +231,7 @@ function getUpdatedArticle(article, direction) {
     return articleTree[index];
 }
 
-
+// Funzione per configurare il bottone del PDF
 function setupPdfButton(viewPdfButton, pdfFrame, downloadPdfButton, fullscreenButton, collapsibleButton, collapsibleContent) {
     console.log('Setting up PDF button');
     viewPdfButton.addEventListener('click', async function() {
@@ -245,6 +276,7 @@ function setupPdfButton(viewPdfButton, pdfFrame, downloadPdfButton, fullscreenBu
     });
 }
 
+// Funzione per configurare il download e il fullscreen del PDF
 function setupDownloadAndFullscreen(downloadPdfButton, fullscreenButton, pdfFrame, pdfUrl) {
     console.log('Setting up download and fullscreen buttons');
     downloadPdfButton.addEventListener('click', () => {
@@ -264,6 +296,7 @@ function setupDownloadAndFullscreen(downloadPdfButton, fullscreenButton, pdfFram
     });
 }
 
+// Funzione per togglare il contenuto collapsible
 function toggleCollapsibleContent() {
     console.log('Toggling collapsible content');
     this.classList.toggle('active');
@@ -274,6 +307,7 @@ function toggleCollapsibleContent() {
 /*******************************
  * FUNZIONI DI SUPPORTO
  *******************************/
+// Funzione per gestire gli errori
 function handleError(error, messageContainer) {
     console.error('Error:', error);
     if (messageContainer) {
@@ -283,6 +317,7 @@ function handleError(error, messageContainer) {
     }
 }
 
+// Funzione per impostare lo stato di caricamento
 function setLoading(isLoading) {
     const loadingElement = document.getElementById('loading');
     if (loadingElement) {
@@ -290,6 +325,7 @@ function setLoading(isLoading) {
     }
 }
 
+// Funzione per validare l'input dell'articolo
 function validateArticleInput(article) {
     console.log('Validating article input:', article);
     if (!article || !articleTree.includes(article)) {
@@ -300,6 +336,7 @@ function validateArticleInput(article) {
     return true;
 }
 
+// Funzione per aggiornare la cronologia
 function updateHistory() {
     console.log('Updating history');
     fetch('/history')

@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, jsonify, send_file
 from tools.norma import NormaVisitata, Norma
 from tools.xlm_htmlextractor import extract_html_article
-from tools import pdfextractor, text_op, treextractor, urngenerator, sys_op
+from tools import pdfextractor, urngenerator, sys_op, brocardi
 import os
 from functools import lru_cache
 from collections import deque
@@ -46,7 +46,8 @@ def fetch_data():
         "result": "text of the article",
         "urn": "URN of the act",
         "norma_data": { ... },
-        "tree": { ... }
+        "tree": { ... },
+        "brocardi_info": { ... }
     }
     """
     try:
@@ -71,19 +72,26 @@ def fetch_data():
 
         # Extract article text
         norma_art_text = extract_html_article(normavisitata)
-        print("____", norma_art_text)
         logging.info(f"Extracted article text: {norma_art_text}")
 
         norma_data = normavisitata.to_dict()
         tree = normavisitata.tree
+        brocardi_scraper = brocardi.BrocardiScraper()
+
+        position, brocardi_info, brocardi_link = brocardi_scraper.get_info(normavisitata)
         
         response = {
             'result': norma_art_text,
             'urn': normavisitata.get_urn(),
             'norma_data': norma_data,
-            'tree': tree
+            'tree': tree,
+            'brocardi_info': {
+                'position': position,
+                'info': brocardi_info,
+                'link' : brocardi_link
+            } if position else None
         }
-        
+
         # Append the NormaVisitata instance to history
         history.append(normavisitata)
         logging.info(f"Appended NormaVisitata to history. Current history size: {len(history)}")
@@ -92,6 +100,8 @@ def fetch_data():
     except Exception as e:
         logging.error(f"Error in fetch_data: {e}", exc_info=True)
         return jsonify({'error': str(e)})
+
+
 
 @app.route('/history', methods=['GET'])
 def get_history():
