@@ -1,271 +1,879 @@
-2024-07-07 15:36:51,556 INFO Received data for fetch_norm: {'act_type': 'legge', 'date': '1990', 'act_number': '241', 'article': '1', 'version': 'vigente', 'version_date': '', 'comma': ''}
-2024-07-07 15:36:51,557 INFO Initializing Norma with tipo_atto: legge, data: 1990, numero_atto: 241, url: None
-2024-07-07 15:36:51,557 INFO Starting generate_urn with act_type: legge, date: 1990, act_number: 241, article: None, extension: None, version: None, version_date: None, urn_flag: False
-2024-07-07 15:36:51,557 INFO Parsing date: Errore nel completamento della data, inserisci la data completa: HTTPConnectionPool(host='localhost', port=52985): Max retries exceeded with url: /session/976de2d5af37d84b97425b991647e6c7/url (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001E53027AA90>: Failed to establish a new connection: [WinError 10061] Impossibile stabilire la connessione. Rifiuto persistente del computer di destinazione'))
-2024-07-07 15:36:51,558 ERROR Invalid date format
-2024-07-07 15:36:51,558 ERROR Error generating URN: Formato data non valido
-Traceback (most recent call last):
-  File "c:\Users\gpuzio\Desktop\VisuaLex_Beta\tools\text_op.py", line 65, in parse_date
-    datetime.datetime.strptime(input_date, "%Y-%m-%d")
-  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\_strptime.py", line 567, in _strptime_datetime
-    tt, fraction, gmtoff_fraction = _strptime(data_string, format)
-                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\_strptime.py", line 349, in _strptime
-    raise ValueError("time data %r does not match format %r" %
-ValueError: time data "Errore nel completamento della data, inserisci la data completa: HTTPConnectionPool(host='localhost', port=52985): Max retries exceeded with url: /session/976de2d5af37d84b97425b991647e6c7/url (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001E53027AA90>: Failed to establish a new connection: [WinError 10061] Impossibile stabilire la connessione. Rifiuto persistente del computer di destinazione'))" does not match format '%Y-%m-%d'
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "c:\Users\gpuzio\Desktop\VisuaLex_Beta\tools\urngenerator.py", line 84, in generate_urn
-    formatted_date = parse_date(full_date)
-                     ^^^^^^^^^^^^^^^^^^^^^
-  File "c:\Users\gpuzio\Desktop\VisuaLex_Beta\tools\text_op.py", line 69, in parse_date
-    raise ValueError("Formato data non valido")
-ValueError: Formato data non valido
-2024-07-07 15:36:51,561 ERROR Error in fetch_data: Invalid URL '(None, None)': No scheme supplied. Perhaps you meant https://(None, None)?
-Traceback (most recent call last):
-  File "c:\Users\gpuzio\Desktop\VisuaLex_Beta\app.py", line 65, in fetch_data
-    norma=Norma(tipo_atto=act_type, data=date, numero_atto=act_number),
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "c:\Users\gpuzio\Desktop\VisuaLex_Beta\tools\norma.py", line 32, in __init__
-    self.tree = tree if tree else get_tree(self.url)
-                                  ^^^^^^^^^^^^^^^^^^
-  File "c:\Users\gpuzio\Desktop\VisuaLex_Beta\tools\treextractor.py", line 17, in get_tree
-    response = requests.get(normurn)
-               ^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\gpuzio\Desktop\VisuaLex_Beta\.venv\Lib\site-packages\requests\api.py", line 73, in get
-    return request("get", url, params=params, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\gpuzio\Desktop\VisuaLex_Beta\.venv\Lib\site-packages\requests\api.py", line 59, in request
-    return session.request(method=method, url=url, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\gpuzio\Desktop\VisuaLex_Beta\.venv\Lib\site-packages\requests\sessions.py", line 575, in request
-    prep = self.prepare_request(req)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\gpuzio\Desktop\VisuaLex_Beta\.venv\Lib\site-packages\requests\sessions.py", line 484, in prepare_request
-    p.prepare(
-  File "C:\Users\gpuzio\Desktop\VisuaLex_Beta\.venv\Lib\site-packages\requests\models.py", line 367, in prepare
-    self.prepare_url(url, params)
-  File "C:\Users\gpuzio\Desktop\VisuaLex_Beta\.venv\Lib\site-packages\requests\models.py", line 438, in prepare_url
-    raise MissingSchema(
-requests.exceptions.MissingSchema: Invalid URL '(None, None)': No scheme supplied. Perhaps you meant https://(None, None)?
-2024-07-07 15:36:51,562 INFO 127.0.0.1 - - [07/Jul/2024 15:36:51] "POST /fetch_norm HTTP/1.1" 200 -
-2024-07-07 15:38:50,535 INFO  * Detected change in 'c:\\Users\\gpuzio\\Desktop\\VisuaLex_Beta\\tools\\urngenerator.py', reloading
-2024-07-07 15:38:54,663 INFO  * Restarting with stat
-2024-07-07 15:38:55,199 INFO Starting Flask app in debug mode
-2024-07-07 15:38:55,208 WARNING  * Debugger is active!
-2024-07-07 15:38:55,211 INFO  * Debugger PIN: 420-641-266
-2024-07-07 15:38:55,402 INFO Received data for fetch_norm: {'act_type': 'legge', 'date': '1990', 'act_number': '241', 'article': '1', 'version': 'vigente', 'version_date': '', 'comma': ''}
-2024-07-07 15:38:55,402 INFO Initializing Norma with tipo_atto: legge, data: 1990, numero_atto: 241, url: None
-2024-07-07 15:38:55,403 INFO Normalizing act type: legge, search: True, source: normattiva
-2024-07-07 15:38:55,403 INFO Normalized act type found: legge
-2024-07-07 15:38:55,403 INFO Normalizing act type: legge, search: False, source: normattiva
-2024-07-07 15:38:55,404 INFO Normalized act type found: legge
-2024-07-07 15:38:55,404 INFO Starting generate_urn with act_type: legge, date: 1990, act_number: 241, article: None, extension: None, version: None, version_date: None, urn_flag: False
-2024-07-07 15:38:55,404 INFO Starting complete_date with act_type: legge, date: 1990, act_number: 241
-2024-07-07 15:39:02,576 INFO Search criteria: legge 241 1990
-2024-07-07 15:39:06,944 INFO Element text found: LEGGE 7 Agosto 1990, n. 241
-2024-07-07 15:39:06,944 INFO Extracting date from denomination: LEGGE 7 Agosto 1990, n. 241
-2024-07-07 15:39:06,945 INFO Extracted date: 7 Agosto 1990
-2024-07-07 15:39:06,945 INFO Completed date: 7 Agosto 1990
-2024-07-07 15:39:06,946 INFO Parsing date: 7 Agosto 1990
-2024-07-07 15:39:06,946 INFO Formatted date: 1990-08-07
-2024-07-07 15:39:06,946 INFO Formatted date: 1990-08-07
-2024-07-07 15:39:06,946 INFO Generated URN: legge:1990-08-07;241
-2024-07-07 15:39:06,947 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1990-08-07;241
-2024-07-07 15:39:08,552 INFO Norma initialized: legge 1990, n. 241
-2024-07-07 15:39:08,552 INFO Starting generate_urn with act_type: legge, date: 1990, act_number: 241, article: 1, extension: None, version: vigente, version_date: , urn_flag: True
-2024-07-07 15:39:08,553 INFO Formatted date: 1990-08-07
-2024-07-07 15:39:08,553 INFO Generated URN: legge:1990-08-07;241
-2024-07-07 15:39:08,553 INFO Article part of URN: legge:1990-08-07;241~art1
-2024-07-07 15:39:08,553 INFO Version part of URN: legge:1990-08-07;241~art1!vig=
-2024-07-07 15:39:08,554 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1990-08-07;241~art1!vig=
-2024-07-07 15:39:08,554 INFO Initializing Norma with tipo_atto: legge, data: 1990, numero_atto: 241, url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1990-08-07;241
-2024-07-07 15:39:08,554 INFO Norma initialized: legge 1990, n. 241 art. 1
-2024-07-07 15:39:08,554 INFO NormaVisitata initialized: legge 1990, n. 241 art. 1
-2024-07-07 15:39:08,555 INFO Created NormaVisitata: legge 1990, n. 241 art. 1
-2024-07-07 15:39:08,555 INFO Getting URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1990-08-07;241~art1!vig=
-2024-07-07 15:39:08,555 INFO Fetching HTML content from URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1990-08-07;241~art1!vig=
-2024-07-07 15:39:09,515 INFO HTML content fetched successfully
-2024-07-07 15:39:09,515 INFO Extracting article from HTML. Comma: None
-2024-07-07 15:39:09,538 INFO Parsed HTML with BeautifulSoup
-2024-07-07 15:39:09,540 INFO Found body of the document
-2024-07-07 15:39:09,541 INFO No comma specified, returning full body text
-2024-07-07 15:39:09,542 INFO Extracted article text: 
-La Camera dei deputati ed il Senato della Repubblica hanno approvato;
-IL PRESIDENTE DELLA REPUBBLICA
-PROMULGA
- la seguente legge:
-Art. 1
-(Principi generali dell'attivitï¿½ amministrativa)
-
-
-1. L'attivitï¿½ amministrativa persegue i fini determinati dalla legge ed ï¿½ retta da criteri di economicitï¿½, di efficacia, di imparzialitï¿½, di pubblicitï¿½ e di trasparenza secondo le modalitï¿½ previste dalla presente legge e dalle altre disposizioni che disciplinano singoli procedimenti , nonchï¿½ dai principi dell'ordinamento comunitario. 
-
-
-
-1-bis. La pubblica amministrazione, nell'adozione di atti di natura non autoritativa, agisce secondo le norme di diritto privato salvo che la legge disponga diversamente. 
-
-
-
-1-ter. I soggetti privati preposti all'esercizio di attivitï¿½ amministrative assicurano il rispetto dei criteri e dei principi di cui al comma 1, con un livello di garanzia non inferiore a quello cui sono tenute le pubbliche amministrazioni in forza delle disposizioni di cui alla presente legge. 
-
-
-
-2. La pubblica amministrazione non puï¿½ aggravare il procedimento se non per straordinarie e motivate esigenze imposte dallo svolgimento dell'istruttoria. 
-
-
-
-
-((
-
-
-2-bis. I rapporti tra il cittadino e la pubblica amministrazione sono improntati ai principi della collaborazione e della buona fede
-
-
-))
-
-
-
-
-2024-07-07 15:39:09,543 INFO Getting URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1990-08-07;241~art1!vig=
-2024-07-07 15:39:09,543 INFO Appended NormaVisitata to history. Current history size: 1
-2024-07-07 15:39:09,544 INFO 127.0.0.1 - - [07/Jul/2024 15:39:09] "POST /fetch_norm HTTP/1.1" 200 -
-2024-07-07 15:39:09,548 INFO Fetching history
-2024-07-07 15:39:09,549 INFO 127.0.0.1 - - [07/Jul/2024 15:39:09] "GET /history HTTP/1.1" 200 -
-2024-07-07 15:39:18,189 INFO Received data for fetch_norm: {'act_type': 'decreto legislativo', 'date': '2001', 'act_number': '165', 'article': '1', 'version': 'vigente', 'version_date': '', 'comma': ''}
-2024-07-07 15:39:18,189 INFO Initializing Norma with tipo_atto: decreto legislativo, data: 2001, numero_atto: 165, url: None
-2024-07-07 15:39:18,190 INFO Normalizing act type: decreto legislativo, search: True, source: normattiva
-2024-07-07 15:39:18,190 INFO Normalized act type found: decreto legislativo
-2024-07-07 15:39:18,190 INFO Normalizing act type: decreto legislativo, search: False, source: normattiva
-2024-07-07 15:39:18,190 INFO Normalized act type found: decreto.legislativo
-2024-07-07 15:39:18,190 INFO Starting generate_urn with act_type: decreto.legislativo, date: 2001, act_number: 165, article: None, extension: None, version: None, version_date: None, urn_flag: False
-2024-07-07 15:39:18,191 INFO Normalizing act type: decreto.legislativo, search: False, source: normattiva
-2024-07-07 15:39:18,191 INFO Normalized act type found: decreto.legislativo
-2024-07-07 15:39:18,191 INFO Normalizing act type: decreto.legislativo, search: True, source: normattiva
-2024-07-07 15:39:18,191 INFO Normalized act type found: decreto legislativo
-2024-07-07 15:39:18,191 INFO Starting complete_date with act_type: decreto legislativo, date: 2001, act_number: 165
-2024-07-07 15:39:20,290 INFO Search criteria: decreto legislativo 165 2001
-2024-07-07 15:39:24,126 INFO Element text found: DECRETO LEGISLATIVO 30 Marzo 2001, n. 165
-2024-07-07 15:39:24,126 INFO Extracting date from denomination: DECRETO LEGISLATIVO 30 Marzo 2001, n. 165
-2024-07-07 15:39:24,127 INFO Extracted date: 30 Marzo 2001
-2024-07-07 15:39:24,127 INFO Completed date: 30 Marzo 2001
-2024-07-07 15:39:24,127 INFO Parsing date: 30 Marzo 2001
-2024-07-07 15:39:24,127 INFO Formatted date: 2001-03-30
-2024-07-07 15:39:24,127 INFO Formatted date: 2001-03-30
-2024-07-07 15:39:24,127 INFO Generated URN: decreto.legislativo:2001-03-30;165
-2024-07-07 15:39:24,127 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2001-03-30;165
-2024-07-07 15:39:26,358 INFO Norma initialized: decreto legislativo 2001, n. 165
-2024-07-07 15:39:26,359 INFO Starting generate_urn with act_type: decreto.legislativo, date: 2001, act_number: 165, article: 1, extension: None, version: vigente, version_date: , urn_flag: True
-2024-07-07 15:39:26,359 INFO Formatted date: 2001-03-30
-2024-07-07 15:39:26,359 INFO Generated URN: decreto.legislativo:2001-03-30;165
-2024-07-07 15:39:26,359 INFO Article part of URN: decreto.legislativo:2001-03-30;165~art1
-2024-07-07 15:39:26,359 INFO Version part of URN: decreto.legislativo:2001-03-30;165~art1!vig=
-2024-07-07 15:39:26,359 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2001-03-30;165~art1!vig=
-2024-07-07 15:39:26,359 INFO Initializing Norma with tipo_atto: decreto legislativo, data: 2001, numero_atto: 165, url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2001-03-30;165
-2024-07-07 15:39:26,359 INFO Norma initialized: decreto legislativo 2001, n. 165 art. 1
-2024-07-07 15:39:26,360 INFO NormaVisitata initialized: decreto legislativo 2001, n. 165 art. 1
-2024-07-07 15:39:26,360 INFO Created NormaVisitata: decreto legislativo 2001, n. 165 art. 1
-2024-07-07 15:39:26,360 INFO Getting URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2001-03-30;165~art1!vig=
-2024-07-07 15:39:26,360 INFO Fetching HTML content from URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2001-03-30;165~art1!vig=
-2024-07-07 15:39:27,318 INFO HTML content fetched successfully
-2024-07-07 15:39:27,320 INFO Extracting article from HTML. Comma: None
-2024-07-07 15:39:27,351 INFO Parsed HTML with BeautifulSoup
-2024-07-07 15:39:27,353 INFO Found body of the document
-2024-07-07 15:39:27,353 INFO No comma specified, returning full body text
-2024-07-07 15:39:27,356 INFO Extracted article text: 
-IL PRESIDENTE DELLA REPUBBLICA
-
-
-
-Visti gli articoli 76 ed 87 della Costituzione.
-
-
-
-
-
-
-Vista la legge 23 ottobre1992, n. 421, ed in particolare l'articolo 2;
-
-
-
-
-
-
-Vista la legge 15 marzo 1997, n. 59;
-
-
-
-
-
-
-Visto il decreto legislativo 3 febbraio 1993, n. 29, e successive modificazioni ed integrazioni;
-
-
-
-
-
-
-Visto l'articolo 1, comma 8, della legge 24 novembre 2000. n. 340:
-
-
-
-
-
-
-Vista la preliminare deliberazione del Consiglio dei Ministri adottata nella seduta del 7 febbraio 2001;
-
-
-
-
-Acquisito il parere dalla Conferenza unificata di cui all'articolo 8 del decreto legislativo 28 agosto 1997, n. 281, espresso in data 8 febbraio 2001;
-
-
-Acquisito il parere delle competenti Commissioni del Senato della Repubblica e della Camera dei Deputati, rispettivamente in data 27 e 28 febbraio 2001;
-
-
-
-
-Viste le deliberazioni del Consiglio dei Ministri, adottate nelle sedute del 21 e 30 marzo 2001;
-
-
-
-
-Su proposta del Presidente del Consiglio dei Ministri e del Ministro per la funzione pubblica;
-
-EMANA
- il seguente decreto legislativo:
-Art. 1
- Finalitï¿½ ed ambito di applicazione 
-(Art. 1 del d.lgs. n. 29 del 1993, come modificato dall'art. 1 del d.lgs. n. 80 del 1998)
-
-
-
-
-1. Le disposizioni del presente decreto disciplinano l'organizzazione degli uffici e i rapporti di lavoro e di impiego alle dipendenze delle amministrazioni pubbliche, tenuto conto delle autonomie locali e di quelle delle regioni e delle province autonome, nel rispetto dell'articolo 97, comma primo, della Costituzione, al fine di: 
-
-a) accrescere l'efficienza delle amministrazioni in relazione a quella dei corrispondenti uffici e servizi dei Paesi dell'Unione europea, anche mediante il coordinato sviluppo di sistemi informativi pubblici; 
-
-b) razionalizzare il costo del lavoro pubblico, contenendo la spesa complessiva per il personale, diretta e indiretta, entro i vincoli di finanza pubblica; 
-
-c) realizzare la migliore utilizzazione delle risorse umane nelle pubbliche amministrazioni, assicurando la formazione e lo sviluppo professionale dei dipendenti, applicando condizioni uniformi rispetto a quelle del lavoro privato, garantendo pari opportunitï¿½ alle lavoratrici ed ai lavoratori nonchï¿½ l'assenza di qualunque forma di discriminazione e di violenza morale o psichica. 
-
-
-
-
-2. Per amministrazioni pubbliche si intendono tutte le amministrazioni dello Stato, ivi compresi gli istituti e scuole di ogni ordine e grado e le istituzioni educative, le aziende ed amministrazioni dello Stato ad ordinamento autonomo, le Regioni, le Province, i Comuni, le Comunitï¿½ montane, e loro consorzi e associazioni, le istituzioni universitarie, gli Istituti autonomi case popolari, le Camere di commercio, industria, artigianato e agricoltura e loro associazioni, tutti gli enti pubblici non economici nazionali, regionali e locali, le amministrazioni, le aziende e gli enti del Servizio sanitario nazionale l'Agenzia per la rappresentanza negoziale delle pubbliche amministrazioni (ARAN) e le Agenzie di cui al decreto legislativo 30 luglio 1999, n. 300. ((Fino alla revisione organica della disciplina di settore, le disposizioni di cui al presente decreto continuano ad applicarsi anche al CONI)). 
-
-
-
-3. Le disposizioni del presente decreto costituiscono principi fondamentali ai sensi dell'articolo 117 della Costituzione. Le Regioni a statuto ordinario si attengono ad esse tenendo conto delle peculiaritï¿½ dei rispettivi ordinamenti. I principi desumibili dall'articolo 2 della legge 23 ottobre 1992, n. 421, e successive modificazioni, e dall'articolo 11, comma 4, della legge 15 marzo 1997, n. 59, e successive modificazioni ed integrazioni, costituiscono altresï¿½, per le Regioni a statuto speciale e per le province autonome di Trento e di Bolzano, norme fondamentali di riforma economico-sociale della Repubblica. 
-
-
-
-
-2024-07-07 15:39:27,359 INFO Getting URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2001-03-30;165~art1!vig=
-2024-07-07 15:39:27,359 INFO Appended NormaVisitata to history. Current history size: 2
-2024-07-07 15:39:27,360 INFO 127.0.0.1 - - [07/Jul/2024 15:39:27] "POST /fetch_norm HTTP/1.1" 200 -
-2024-07-07 15:39:27,363 INFO Fetching history
-2024-07-07 15:39:27,364 INFO 127.0.0.1 - - [07/Jul/2024 15:39:27] "GET /history HTTP/1.1" 200 -
-
+2024-07-26 20:20:32,652 INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-07-26 20:20:32,653 INFO [33mPress CTRL+C to quit[0m
+2024-07-26 20:21:13,952 INFO Initializing Norma with tipo_atto: legge, data: 1990, numero_atto: 241, url: None
+2024-07-26 20:21:13,953 INFO Normalizing act type: legge, search: True, source: normattiva
+2024-07-26 20:21:13,953 INFO Normalized act type found: legge
+2024-07-26 20:21:13,953 INFO Normalizing act type: legge, search: False, source: normattiva
+2024-07-26 20:21:13,954 INFO Normalized act type found: legge
+2024-07-26 20:21:13,954 INFO Starting generate_urn with act_type: legge, date: 1990, act_number: 241, article: None, extension: None, version: None, version_date: None, urn_flag: False
+2024-07-26 20:21:13,954 INFO Starting complete_date with act_type: legge, date: 1990, act_number: 241
+2024-07-26 20:21:18,286 INFO Search criteria: legge 241 1990
+2024-07-26 20:21:21,972 INFO Element text found: LEGGE 7 Agosto 1990, n. 241
+2024-07-26 20:21:21,972 INFO Extracting date from denomination: LEGGE 7 Agosto 1990, n. 241
+2024-07-26 20:21:21,973 INFO Extracted date: 7 Agosto 1990
+2024-07-26 20:21:21,973 INFO Completed date: 7 Agosto 1990
+2024-07-26 20:21:21,973 INFO Parsing date: 7 Agosto 1990
+2024-07-26 20:21:21,973 INFO Formatted date: 1990-08-07
+2024-07-26 20:21:21,973 INFO Formatted date: 1990-08-07
+2024-07-26 20:21:21,973 INFO Generated URN: legge:1990-08-07;241
+2024-07-26 20:21:21,974 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1990-08-07;241
+2024-07-26 20:21:23,723 INFO Norma initialized: legge 1990, n. 241
+2024-07-26 20:21:23,723 INFO Starting generate_urn with act_type: legge, date: 1990, act_number: 241, article: 1, extension: None, version: None, version_date: None, urn_flag: True
+2024-07-26 20:21:23,723 INFO Formatted date: 1990-08-07
+2024-07-26 20:21:23,724 INFO Generated URN: legge:1990-08-07;241
+2024-07-26 20:21:23,724 INFO Article part of URN: legge:1990-08-07;241~art1
+2024-07-26 20:21:23,725 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1990-08-07;241~art1
+2024-07-26 20:21:23,725 INFO Initializing Norma with tipo_atto: legge, data: 1990, numero_atto: 241, url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1990-08-07;241
+2024-07-26 20:21:23,725 INFO Norma initialized: legge 1990, n. 241 art. 1
+2024-07-26 20:21:23,726 INFO NormaVisitata initialized: legge 1990, n. 241 art. 1
+2024-07-26 20:21:23,726 INFO Getting URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1990-08-07;241~art1
+2024-07-26 20:21:23,726 INFO Fetching HTML content from URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1990-08-07;241~art1
+2024-07-26 20:21:25,539 INFO HTML content fetched successfully
+2024-07-26 20:21:25,539 INFO Extracting article from HTML. Comma: None
+2024-07-26 20:21:25,576 INFO Parsed HTML with BeautifulSoup
+2024-07-26 20:21:25,577 INFO Found body of the document
+2024-07-26 20:21:25,577 INFO No comma specified, returning full body text
+2024-07-26 20:21:25,578 INFO 127.0.0.1 - - [26/Jul/2024 20:21:25] "POST /scrape HTTP/1.1" 200 -
+2024-07-26 20:30:35,764 INFO Initializing Norma with tipo_atto: legge, data: 1990, numero_atto: 241, url: None
+2024-07-26 20:30:35,764 INFO Norma initialized: legge 1990, n. 241
+2024-07-26 20:30:35,765 INFO Initializing Norma with tipo_atto: legge, data: 1990, numero_atto: 241, url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1990-08-07;241
+2024-07-26 20:30:35,765 INFO Norma initialized: legge 1990, n. 241 art. 1
+2024-07-26 20:30:35,766 INFO NormaVisitata initialized: legge 1990, n. 241 art. 1
+2024-07-26 20:30:35,766 INFO Getting URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1990-08-07;241~art1
+2024-07-26 20:30:35,766 INFO Fetching HTML content from URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1990-08-07;241~art1
+2024-07-26 20:30:37,720 INFO HTML content fetched successfully
+2024-07-26 20:30:37,722 INFO 127.0.0.1 - - [26/Jul/2024 20:30:37] "POST /scrape HTTP/1.1" 200 -
+2024-07-26 20:36:42,411 INFO [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-07-26 20:36:42,412 INFO [33mPress CTRL+C to quit[0m
+2024-07-26 20:36:59,109 INFO Initializing Norma with tipo_atto: legge, data: 1990, numero_atto: 241, url: None
+2024-07-26 20:36:59,109 INFO Normalizing act type: legge, search: True, source: normattiva
+2024-07-26 20:36:59,109 INFO Normalized act type found: legge
+2024-07-26 20:36:59,110 INFO Normalizing act type: legge, search: False, source: normattiva
+2024-07-26 20:36:59,110 INFO Normalized act type found: legge
+2024-07-26 20:36:59,110 INFO Starting generate_urn with act_type: legge, date: 1990, act_number: 241, article: None, extension: None, version: None, version_date: None, urn_flag: False
+2024-07-26 20:36:59,111 INFO Starting complete_date with act_type: legge, date: 1990, act_number: 241
+2024-07-26 20:37:03,447 INFO Search criteria: legge 241 1990
+2024-07-26 20:37:07,133 INFO Element text found: LEGGE 7 Agosto 1990, n. 241
+2024-07-26 20:37:07,134 INFO Extracting date from denomination: LEGGE 7 Agosto 1990, n. 241
+2024-07-26 20:37:07,134 INFO Extracted date: 7 Agosto 1990
+2024-07-26 20:37:07,134 INFO Completed date: 7 Agosto 1990
+2024-07-26 20:37:07,135 INFO Parsing date: 7 Agosto 1990
+2024-07-26 20:37:07,135 INFO Formatted date: 1990-08-07
+2024-07-26 20:37:07,135 INFO Formatted date: 1990-08-07
+2024-07-26 20:37:07,135 INFO Generated URN: legge:1990-08-07;241
+2024-07-26 20:37:07,135 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1990-08-07;241
+2024-07-26 20:37:09,106 INFO Norma initialized: legge 1990, n. 241
+2024-07-26 20:37:09,106 INFO Starting generate_urn with act_type: legge, date: 1990, act_number: 241, article: 1, extension: None, version: vigente, version_date: None, urn_flag: True
+2024-07-26 20:37:09,107 INFO Formatted date: 1990-08-07
+2024-07-26 20:37:09,107 INFO Generated URN: legge:1990-08-07;241
+2024-07-26 20:37:09,107 INFO Article part of URN: legge:1990-08-07;241~art1
+2024-07-26 20:37:09,108 INFO Version part of URN: legge:1990-08-07;241~art1!vig=
+2024-07-26 20:37:09,108 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1990-08-07;241~art1!vig=
+2024-07-26 20:37:09,108 INFO Initializing Norma with tipo_atto: legge, data: 1990, numero_atto: 241, url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1990-08-07;241
+2024-07-26 20:37:09,109 INFO Norma initialized: legge 1990, n. 241 art. 1
+2024-07-26 20:37:09,109 INFO NormaVisitata initialized: legge 1990, n. 241 art. 1
+2024-07-26 20:37:09,109 INFO Getting URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1990-08-07;241~art1!vig=
+2024-07-26 20:37:09,109 INFO Fetching HTML content from URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:legge:1990-08-07;241~art1!vig=
+2024-07-26 20:37:09,891 INFO HTML content fetched successfully
+2024-07-26 20:37:09,891 INFO Extracting article from HTML. Comma: None
+2024-07-26 20:37:09,912 INFO Parsed HTML with BeautifulSoup
+2024-07-26 20:37:09,913 INFO Found body of the document
+2024-07-26 20:37:09,913 INFO No comma specified, returning full body text
+2024-07-26 20:37:09,914 INFO 127.0.0.1 - - [26/Jul/2024 20:37:09] "POST /scrape HTTP/1.1" 200 -
+2024-07-26 20:37:18,434 INFO Initializing Norma with tipo_atto: costituzione, data: None, numero_atto: None, url: None
+2024-07-26 20:37:18,435 INFO Normalizing act type: costituzione, search: True, source: normattiva
+2024-07-26 20:37:18,436 INFO Normalized act type found: costituzione
+2024-07-26 20:37:18,436 INFO Normalizing act type: costituzione, search: False, source: normattiva
+2024-07-26 20:37:18,436 INFO Normalized act type found: costituzione
+2024-07-26 20:37:18,437 INFO Starting generate_urn with act_type: costituzione, date: None, act_number: None, article: None, extension: None, version: None, version_date: None, urn_flag: False
+2024-07-26 20:37:18,437 INFO Found URN in codici_urn: costituzione
+2024-07-26 20:37:18,437 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:costituzione
+2024-07-26 20:37:19,362 INFO Norma initialized: costituzione
+2024-07-26 20:37:19,362 INFO Starting generate_urn with act_type: costituzione, date: , act_number: , article: 1, extension: None, version: vigente, version_date: None, urn_flag: True
+2024-07-26 20:37:19,362 INFO Found URN in codici_urn: costituzione
+2024-07-26 20:37:19,363 INFO Article part of URN: costituzione~art1
+2024-07-26 20:37:19,364 INFO Version part of URN: costituzione~art1!vig=
+2024-07-26 20:37:19,364 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:costituzione~art1!vig=
+2024-07-26 20:37:19,364 INFO Initializing Norma with tipo_atto: costituzione, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:costituzione
+2024-07-26 20:37:19,364 INFO Norma initialized: costituzione art. 1
+2024-07-26 20:37:19,364 INFO NormaVisitata initialized: costituzione art. 1
+2024-07-26 20:37:19,365 INFO Getting URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:costituzione~art1!vig=
+2024-07-26 20:37:19,365 INFO Fetching HTML content from URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:costituzione~art1!vig=
+2024-07-26 20:37:20,167 INFO HTML content fetched successfully
+2024-07-26 20:37:20,168 INFO Extracting article from HTML. Comma: None
+2024-07-26 20:37:20,197 INFO Parsed HTML with BeautifulSoup
+2024-07-26 20:37:20,198 INFO Found body of the document
+2024-07-26 20:37:20,199 INFO No comma specified, returning full body text
+2024-07-26 20:37:20,199 INFO 127.0.0.1 - - [26/Jul/2024 20:37:20] "POST /scrape HTTP/1.1" 200 -
+2024-07-26 20:44:36,117 INFO Initializing Norma with tipo_atto: costituzione, data: None, numero_atto: None, url: None
+2024-07-26 20:44:36,117 INFO Norma initialized: costituzione
+2024-07-26 20:44:36,117 INFO Initializing Norma with tipo_atto: costituzione, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:costituzione
+2024-07-26 20:44:36,117 INFO Norma initialized: costituzione art. 1
+2024-07-26 20:44:36,118 INFO NormaVisitata initialized: costituzione art. 1
+2024-07-26 20:44:36,118 INFO Getting URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:costituzione~art1!vig=
+2024-07-26 20:44:36,118 INFO Fetching HTML content from URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:costituzione~art1!vig=
+2024-07-26 20:44:36,879 INFO HTML content fetched successfully
+2024-07-26 20:44:36,880 INFO 127.0.0.1 - - [26/Jul/2024 20:44:36] "POST /scrape HTTP/1.1" 200 -
+2024-07-26 20:44:36,883 INFO Initializing Norma with tipo_atto: costituzione, data: {'html': "\n\n\nArt. 1\n\n\n L'Italia è una Repubblica democratica, fondata sul lavoro.\n La sovranità appartiene al popolo, che la esercita nelle forme e nei limiti della Costituzione.\n\n\n\n"}, numero_atto: None, url: None
+2024-07-26 20:44:36,884 INFO Normalizing act type: costituzione, search: True, source: normattiva
+2024-07-26 20:44:36,884 INFO Normalized act type found: costituzione
+2024-07-26 20:44:36,884 INFO Normalizing act type: costituzione, search: False, source: normattiva
+2024-07-26 20:44:36,884 INFO Normalized act type found: costituzione
+2024-07-26 20:47:02,124 INFO Initializing Norma with tipo_atto: costituzione, data: None, numero_atto: None, url: None
+2024-07-26 20:47:02,125 INFO Norma initialized: costituzione
+2024-07-26 20:47:02,125 INFO Initializing Norma with tipo_atto: costituzione, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:costituzione
+2024-07-26 20:47:02,125 INFO Norma initialized: costituzione art. 1
+2024-07-26 20:47:02,126 INFO NormaVisitata initialized: costituzione art. 1
+2024-07-26 20:47:02,126 INFO Getting URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:costituzione~art1!vig=
+2024-07-26 20:47:02,126 INFO Fetching HTML content from URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:costituzione~art1!vig=
+2024-07-26 20:47:02,886 INFO HTML content fetched successfully
+2024-07-26 20:47:02,887 INFO 127.0.0.1 - - [26/Jul/2024 20:47:02] "POST /scrape HTTP/1.1" 200 -
+2024-07-26 20:47:02,891 INFO Initializing Norma with tipo_atto: costituzione, data: None, numero_atto: None, url: None
+2024-07-26 20:47:02,891 INFO Normalizing act type: costituzione, search: True, source: normattiva
+2024-07-26 20:47:02,891 INFO Normalized act type found: costituzione
+2024-07-26 20:47:02,891 INFO Normalizing act type: costituzione, search: False, source: normattiva
+2024-07-26 20:47:02,892 INFO Normalized act type found: costituzione
+2024-07-26 20:47:02,892 INFO Starting generate_urn with act_type: costituzione, date: None, act_number: None, article: None, extension: None, version: None, version_date: None, urn_flag: False
+2024-07-26 20:47:02,892 INFO Found URN in codici_urn: costituzione
+2024-07-26 20:47:02,892 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:costituzione
+2024-07-26 20:47:02,892 INFO Norma initialized: costituzione
+2024-07-26 20:47:02,893 INFO Starting generate_urn with act_type: costituzione, date: , act_number: , article: 1, extension: None, version: vigente, version_date: , urn_flag: True
+2024-07-26 20:47:02,893 INFO Found URN in codici_urn: costituzione
+2024-07-26 20:47:02,893 INFO Article part of URN: costituzione~art1
+2024-07-26 20:47:02,893 INFO Version part of URN: costituzione~art1!vig=
+2024-07-26 20:47:02,893 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:costituzione~art1!vig=
+2024-07-26 20:47:40,182 INFO Initializing Norma with tipo_atto: costituzione, data: None, numero_atto: None, url: None
+2024-07-26 20:47:40,183 INFO Norma initialized: costituzione
+2024-07-26 20:47:40,183 INFO Initializing Norma with tipo_atto: costituzione, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:costituzione
+2024-07-26 20:47:40,183 INFO Norma initialized: costituzione art. 1
+2024-07-26 20:47:40,184 INFO NormaVisitata initialized: costituzione art. 1
+2024-07-26 20:47:40,184 INFO Getting URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:costituzione~art1!vig=
+2024-07-26 20:47:40,184 INFO Fetching HTML content from URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:costituzione~art1!vig=
+2024-07-26 20:47:40,969 INFO HTML content fetched successfully
+2024-07-26 20:47:40,970 INFO 127.0.0.1 - - [26/Jul/2024 20:47:40] "POST /scrape HTTP/1.1" 200 -
+2024-07-26 20:47:40,972 INFO Initializing Norma with tipo_atto: costituzione, data: None, numero_atto: None, url: None
+2024-07-26 20:47:40,973 INFO Normalizing act type: costituzione, search: True, source: normattiva
+2024-07-26 20:47:40,973 INFO Normalized act type found: costituzione
+2024-07-26 20:47:40,973 INFO Normalizing act type: costituzione, search: False, source: normattiva
+2024-07-26 20:47:40,973 INFO Normalized act type found: costituzione
+2024-07-26 20:47:40,973 INFO Starting generate_urn with act_type: costituzione, date: None, act_number: None, article: None, extension: None, version: None, version_date: None, urn_flag: False
+2024-07-26 20:47:40,974 INFO Found URN in codici_urn: costituzione
+2024-07-26 20:47:40,974 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:costituzione
+2024-07-26 20:47:40,974 INFO Norma initialized: costituzione
+2024-07-26 20:47:40,974 INFO Starting generate_urn with act_type: costituzione, date: , act_number: , article: 1, extension: None, version: vigente, version_date: , urn_flag: True
+2024-07-26 20:47:40,975 INFO Found URN in codici_urn: costituzione
+2024-07-26 20:47:40,975 INFO Article part of URN: costituzione~art1
+2024-07-26 20:47:40,975 INFO Version part of URN: costituzione~art1!vig=
+2024-07-26 20:47:40,975 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:costituzione~art1!vig=
+2024-07-26 20:47:58,934 INFO Initializing Norma with tipo_atto: costituzione, data: None, numero_atto: None, url: None
+2024-07-26 20:47:58,935 INFO Norma initialized: costituzione
+2024-07-26 20:47:58,935 INFO Initializing Norma with tipo_atto: costituzione, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:costituzione
+2024-07-26 20:47:58,936 INFO Norma initialized: costituzione art. 1
+2024-07-26 20:47:58,936 INFO NormaVisitata initialized: costituzione art. 1
+2024-07-26 20:47:58,936 INFO Getting URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:costituzione~art1!vig=
+2024-07-26 20:47:58,937 INFO Fetching HTML content from URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:costituzione~art1!vig=
+2024-07-26 20:47:59,786 INFO HTML content fetched successfully
+2024-07-26 20:47:59,787 INFO 127.0.0.1 - - [26/Jul/2024 20:47:59] "POST /scrape HTTP/1.1" 200 -
+2024-07-26 20:47:59,790 INFO Initializing Norma with tipo_atto: costituzione, data: None, numero_atto: None, url: None
+2024-07-26 20:47:59,791 INFO Normalizing act type: costituzione, search: True, source: normattiva
+2024-07-26 20:47:59,791 INFO Normalized act type found: costituzione
+2024-07-26 20:47:59,791 INFO Normalizing act type: costituzione, search: False, source: normattiva
+2024-07-26 20:47:59,791 INFO Normalized act type found: costituzione
+2024-07-26 20:47:59,792 INFO Starting generate_urn with act_type: costituzione, date: None, act_number: None, article: None, extension: None, version: None, version_date: None, urn_flag: False
+2024-07-26 20:47:59,792 INFO Found URN in codici_urn: costituzione
+2024-07-26 20:47:59,792 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:costituzione
+2024-07-26 20:47:59,792 INFO Norma initialized: costituzione
+2024-07-26 20:47:59,792 INFO Starting generate_urn with act_type: costituzione, date: , act_number: , article: 1, extension: None, version: vigente, version_date: , urn_flag: True
+2024-07-26 20:47:59,793 INFO Found URN in codici_urn: costituzione
+2024-07-26 20:47:59,794 INFO Article part of URN: costituzione~art1
+2024-07-26 20:47:59,794 INFO Version part of URN: costituzione~art1!vig=
+2024-07-26 20:47:59,794 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:costituzione~art1!vig=
+2024-07-26 20:48:00,587 INFO Initializing Norma with tipo_atto: costituzione, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:costituzione
+2024-07-26 20:48:00,587 INFO Norma initialized: costituzione art. 1
+2024-07-26 20:48:00,588 INFO NormaVisitata initialized: costituzione art. 1
+2024-07-26 20:48:22,927 INFO Initializing Norma with tipo_atto: codice civile, data: None, numero_atto: None, url: None
+2024-07-26 20:48:22,928 INFO Normalizing act type: codice civile, search: True, source: normattiva
+2024-07-26 20:48:22,928 INFO Normalized act type found: codice civile
+2024-07-26 20:48:22,928 INFO Normalizing act type: codice civile, search: False, source: normattiva
+2024-07-26 20:48:22,928 INFO Normalized act type found: codice civile
+2024-07-26 20:48:22,928 INFO Starting generate_urn with act_type: codice civile, date: None, act_number: None, article: None, extension: None, version: None, version_date: None, urn_flag: False
+2024-07-26 20:48:22,929 INFO Found URN in codici_urn: regio.decreto:1942-03-16;262:2
+2024-07-26 20:48:22,929 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 20:48:39,440 INFO Norma initialized: codice civile
+2024-07-26 20:48:39,440 INFO Starting generate_urn with act_type: codice civile, date: , act_number: , article: 1, extension: None, version: originale, version_date: None, urn_flag: True
+2024-07-26 20:48:39,441 INFO Found URN in codici_urn: regio.decreto:1942-03-16;262:2
+2024-07-26 20:48:39,441 INFO Article part of URN: regio.decreto:1942-03-16;262:2~art1
+2024-07-26 20:48:39,441 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art1@originale
+2024-07-26 20:48:39,441 INFO Initializing Norma with tipo_atto: codice civile, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 20:48:39,441 INFO Norma initialized: codice civile art. 1
+2024-07-26 20:48:39,441 INFO NormaVisitata initialized: codice civile art. 1
+2024-07-26 20:48:39,442 INFO Getting URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art1@originale
+2024-07-26 20:48:39,442 INFO Fetching HTML content from URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art1@originale
+2024-07-26 20:48:41,154 INFO HTML content fetched successfully
+2024-07-26 20:48:41,155 INFO Extracting article from HTML. Comma: None
+2024-07-26 20:48:41,452 INFO Parsed HTML with BeautifulSoup
+2024-07-26 20:48:41,466 INFO Found body of the document
+2024-07-26 20:48:41,466 INFO No comma specified, returning full body text
+2024-07-26 20:48:41,467 INFO 127.0.0.1 - - [26/Jul/2024 20:48:41] "POST /scrape HTTP/1.1" 200 -
+2024-07-26 20:48:41,469 INFO Initializing Norma with tipo_atto: codice civile, data: None, numero_atto: None, url: None
+2024-07-26 20:48:41,469 INFO Normalizing act type: codice civile, search: True, source: normattiva
+2024-07-26 20:48:41,469 INFO Normalized act type found: codice civile
+2024-07-26 20:48:41,469 INFO Normalizing act type: codice civile, search: False, source: normattiva
+2024-07-26 20:48:41,469 INFO Normalized act type found: codice civile
+2024-07-26 20:48:41,470 INFO Starting generate_urn with act_type: codice civile, date: None, act_number: None, article: None, extension: None, version: None, version_date: None, urn_flag: False
+2024-07-26 20:48:41,470 INFO Found URN in codici_urn: regio.decreto:1942-03-16;262:2
+2024-07-26 20:48:41,470 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 20:48:41,470 INFO Norma initialized: codice civile
+2024-07-26 20:48:41,470 INFO Starting generate_urn with act_type: codice civile, date: , act_number: , article: 1, extension: None, version: originale, version_date: , urn_flag: True
+2024-07-26 20:48:41,471 INFO Found URN in codici_urn: regio.decreto:1942-03-16;262:2
+2024-07-26 20:48:41,471 INFO Article part of URN: regio.decreto:1942-03-16;262:2~art1
+2024-07-26 20:48:41,471 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art1@originale
+2024-07-26 20:48:43,475 INFO Initializing Norma with tipo_atto: codice civile, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 20:48:43,475 INFO Norma initialized: codice civile art. 1
+2024-07-26 20:48:43,476 INFO NormaVisitata initialized: codice civile art. 1
+2024-07-26 20:49:38,558 INFO Initializing Norma with tipo_atto: costituzione, data: None, numero_atto: None, url: None
+2024-07-26 20:49:38,559 INFO Norma initialized: costituzione
+2024-07-26 20:49:38,559 INFO Starting generate_urn with act_type: costituzione, date: , act_number: , article: 117, extension: None, version: originale, version_date: None, urn_flag: True
+2024-07-26 20:49:38,559 INFO Found URN in codici_urn: costituzione
+2024-07-26 20:49:38,559 INFO Article part of URN: costituzione~art117
+2024-07-26 20:49:38,560 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:costituzione~art117@originale
+2024-07-26 20:49:38,560 INFO Initializing Norma with tipo_atto: costituzione, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:costituzione
+2024-07-26 20:49:38,561 INFO Norma initialized: costituzione art. 117
+2024-07-26 20:49:38,561 INFO NormaVisitata initialized: costituzione art. 117
+2024-07-26 20:49:38,561 INFO Getting URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:costituzione~art117@originale
+2024-07-26 20:49:38,561 INFO Fetching HTML content from URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:costituzione~art117@originale
+2024-07-26 20:49:39,397 INFO HTML content fetched successfully
+2024-07-26 20:49:39,397 INFO Extracting article from HTML. Comma: None
+2024-07-26 20:49:39,425 INFO Parsed HTML with BeautifulSoup
+2024-07-26 20:49:39,427 INFO Found body of the document
+2024-07-26 20:49:39,427 INFO No comma specified, returning full body text
+2024-07-26 20:49:39,428 INFO 127.0.0.1 - - [26/Jul/2024 20:49:39] "POST /scrape HTTP/1.1" 200 -
+2024-07-26 20:49:39,434 INFO Initializing Norma with tipo_atto: costituzione, data: None, numero_atto: None, url: None
+2024-07-26 20:49:39,434 INFO Normalizing act type: costituzione, search: True, source: normattiva
+2024-07-26 20:49:39,434 INFO Normalized act type found: costituzione
+2024-07-26 20:49:39,434 INFO Normalizing act type: costituzione, search: False, source: normattiva
+2024-07-26 20:49:39,434 INFO Normalized act type found: costituzione
+2024-07-26 20:49:39,434 INFO Starting generate_urn with act_type: costituzione, date: None, act_number: None, article: None, extension: None, version: None, version_date: None, urn_flag: False
+2024-07-26 20:49:39,435 INFO Found URN in codici_urn: costituzione
+2024-07-26 20:49:39,435 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:costituzione
+2024-07-26 20:49:39,435 INFO Norma initialized: costituzione
+2024-07-26 20:49:39,435 INFO Starting generate_urn with act_type: costituzione, date: , act_number: , article: 117, extension: None, version: originale, version_date: None, urn_flag: True
+2024-07-26 20:49:39,435 INFO Found URN in codici_urn: costituzione
+2024-07-26 20:49:39,435 INFO Article part of URN: costituzione~art117
+2024-07-26 20:49:39,435 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:costituzione~art117@originale
+2024-07-26 20:49:40,307 INFO Initializing Norma with tipo_atto: costituzione, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:costituzione
+2024-07-26 20:49:40,307 INFO Norma initialized: costituzione art. 117
+2024-07-26 20:49:40,307 INFO NormaVisitata initialized: costituzione art. 117
+2024-07-26 20:51:02,209 INFO Initializing Norma with tipo_atto: codice civile, data: None, numero_atto: None, url: None
+2024-07-26 20:51:02,210 INFO Norma initialized: codice civile
+2024-07-26 20:51:02,210 INFO Starting generate_urn with act_type: codice civile, date: , act_number: , article: 1, extension: None, version: vigente, version_date: None, urn_flag: True
+2024-07-26 20:51:02,210 INFO Found URN in codici_urn: regio.decreto:1942-03-16;262:2
+2024-07-26 20:51:02,210 INFO Article part of URN: regio.decreto:1942-03-16;262:2~art1
+2024-07-26 20:51:02,210 INFO Version part of URN: regio.decreto:1942-03-16;262:2~art1!vig=
+2024-07-26 20:51:02,210 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art1!vig=
+2024-07-26 20:51:02,210 INFO Initializing Norma with tipo_atto: codice civile, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 20:51:02,210 INFO Norma initialized: codice civile art. 1
+2024-07-26 20:51:02,211 INFO NormaVisitata initialized: codice civile art. 1
+2024-07-26 20:51:02,211 INFO Getting URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art1!vig=
+2024-07-26 20:51:02,211 INFO Fetching HTML content from URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art1!vig=
+2024-07-26 20:51:04,835 INFO HTML content fetched successfully
+2024-07-26 20:51:04,835 INFO Extracting article from HTML. Comma: None
+2024-07-26 20:51:05,144 INFO Parsed HTML with BeautifulSoup
+2024-07-26 20:51:05,157 INFO Found body of the document
+2024-07-26 20:51:05,157 INFO No comma specified, returning full body text
+2024-07-26 20:51:05,157 INFO 127.0.0.1 - - [26/Jul/2024 20:51:05] "POST /scrape HTTP/1.1" 200 -
+2024-07-26 20:51:05,158 INFO Initializing Norma with tipo_atto: codice civile, data: None, numero_atto: None, url: None
+2024-07-26 20:51:05,158 INFO Normalizing act type: codice civile, search: True, source: normattiva
+2024-07-26 20:51:05,158 INFO Normalized act type found: codice civile
+2024-07-26 20:51:05,159 INFO Normalizing act type: codice civile, search: False, source: normattiva
+2024-07-26 20:51:05,159 INFO Normalized act type found: codice civile
+2024-07-26 20:51:05,159 INFO Starting generate_urn with act_type: codice civile, date: None, act_number: None, article: None, extension: None, version: None, version_date: None, urn_flag: False
+2024-07-26 20:51:05,159 INFO Found URN in codici_urn: regio.decreto:1942-03-16;262:2
+2024-07-26 20:51:05,159 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 20:51:05,160 INFO Norma initialized: codice civile
+2024-07-26 20:51:05,160 INFO Starting generate_urn with act_type: codice civile, date: , act_number: , article: 1, extension: None, version: vigente, version_date: , urn_flag: True
+2024-07-26 20:51:05,160 INFO Found URN in codici_urn: regio.decreto:1942-03-16;262:2
+2024-07-26 20:51:05,161 INFO Article part of URN: regio.decreto:1942-03-16;262:2~art1
+2024-07-26 20:51:05,162 INFO Version part of URN: regio.decreto:1942-03-16;262:2~art1!vig=
+2024-07-26 20:51:05,162 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art1!vig=
+2024-07-26 20:51:07,732 INFO Initializing Norma with tipo_atto: codice civile, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 20:51:07,733 INFO Norma initialized: codice civile art. 1
+2024-07-26 20:51:07,734 INFO NormaVisitata initialized: codice civile art. 1
+2024-07-26 20:51:40,461 INFO Initializing Norma with tipo_atto: codice civile, data: None, numero_atto: None, url: None
+2024-07-26 20:51:40,461 INFO Norma initialized: codice civile
+2024-07-26 20:51:40,461 INFO Initializing Norma with tipo_atto: codice civile, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 20:51:40,461 INFO Norma initialized: codice civile art. 1
+2024-07-26 20:51:40,462 INFO NormaVisitata initialized: codice civile art. 1
+2024-07-26 20:51:40,462 INFO Getting URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art1!vig=
+2024-07-26 20:51:40,462 INFO Fetching HTML content from URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art1!vig=
+2024-07-26 20:51:42,819 INFO HTML content fetched successfully
+2024-07-26 20:51:42,821 INFO 127.0.0.1 - - [26/Jul/2024 20:51:42] "POST /scrape HTTP/1.1" 200 -
+2024-07-26 20:51:42,821 INFO Initializing Norma with tipo_atto: codice civile, data: None, numero_atto: None, url: None
+2024-07-26 20:51:42,822 INFO Normalizing act type: codice civile, search: True, source: normattiva
+2024-07-26 20:51:42,822 INFO Normalized act type found: codice civile
+2024-07-26 20:51:42,823 INFO Normalizing act type: codice civile, search: False, source: normattiva
+2024-07-26 20:51:42,823 INFO Normalized act type found: codice civile
+2024-07-26 20:51:42,823 INFO Starting generate_urn with act_type: codice civile, date: None, act_number: None, article: None, extension: None, version: None, version_date: None, urn_flag: False
+2024-07-26 20:51:42,823 INFO Found URN in codici_urn: regio.decreto:1942-03-16;262:2
+2024-07-26 20:51:42,824 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 20:51:42,824 INFO Norma initialized: codice civile
+2024-07-26 20:51:42,824 INFO Starting generate_urn with act_type: codice civile, date: , act_number: , article: 1, extension: None, version: vigente, version_date: , urn_flag: True
+2024-07-26 20:51:42,824 INFO Found URN in codici_urn: regio.decreto:1942-03-16;262:2
+2024-07-26 20:51:42,824 INFO Article part of URN: regio.decreto:1942-03-16;262:2~art1
+2024-07-26 20:51:42,825 INFO Version part of URN: regio.decreto:1942-03-16;262:2~art1!vig=
+2024-07-26 20:51:42,825 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art1!vig=
+2024-07-26 20:51:45,270 INFO Initializing Norma with tipo_atto: codice civile, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 20:51:45,272 INFO Norma initialized: codice civile art. 1
+2024-07-26 20:51:45,272 INFO NormaVisitata initialized: codice civile art. 1
+2024-07-26 20:52:55,821 INFO Initializing Norma with tipo_atto: codice civile, data: None, numero_atto: None, url: None
+2024-07-26 20:52:55,822 INFO Norma initialized: codice civile
+2024-07-26 20:52:55,822 INFO Initializing Norma with tipo_atto: codice civile, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 20:52:55,822 INFO Norma initialized: codice civile art. 1
+2024-07-26 20:52:55,822 INFO NormaVisitata initialized: codice civile art. 1
+2024-07-26 20:52:55,823 INFO Getting URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art1!vig=
+2024-07-26 20:52:55,823 INFO Fetching HTML content from URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art1!vig=
+2024-07-26 20:52:58,424 INFO HTML content fetched successfully
+2024-07-26 20:52:58,426 INFO 127.0.0.1 - - [26/Jul/2024 20:52:58] "POST /scrape HTTP/1.1" 200 -
+2024-07-26 20:52:58,426 INFO Initializing Norma with tipo_atto: codice civile, data: None, numero_atto: None, url: None
+2024-07-26 20:52:58,427 INFO Normalizing act type: codice civile, search: True, source: normattiva
+2024-07-26 20:52:58,427 INFO Normalized act type found: codice civile
+2024-07-26 20:52:58,427 INFO Normalizing act type: codice civile, search: False, source: normattiva
+2024-07-26 20:52:58,428 INFO Normalized act type found: codice civile
+2024-07-26 20:52:58,428 INFO Starting generate_urn with act_type: codice civile, date: None, act_number: None, article: None, extension: None, version: None, version_date: None, urn_flag: False
+2024-07-26 20:52:58,428 INFO Found URN in codici_urn: regio.decreto:1942-03-16;262:2
+2024-07-26 20:52:58,429 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 20:52:58,429 INFO Norma initialized: codice civile
+2024-07-26 20:52:58,429 INFO Starting generate_urn with act_type: codice civile, date: , act_number: , article: 1, extension: None, version: vigente, version_date: , urn_flag: True
+2024-07-26 20:52:58,430 INFO Found URN in codici_urn: regio.decreto:1942-03-16;262:2
+2024-07-26 20:52:58,430 INFO Article part of URN: regio.decreto:1942-03-16;262:2~art1
+2024-07-26 20:52:58,430 INFO Version part of URN: regio.decreto:1942-03-16;262:2~art1!vig=
+2024-07-26 20:52:58,430 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art1!vig=
+2024-07-26 20:53:01,205 INFO Initializing Norma with tipo_atto: codice civile, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 20:53:01,206 INFO Norma initialized: codice civile art. 1
+2024-07-26 20:53:01,206 INFO NormaVisitata initialized: codice civile art. 1
+2024-07-26 20:55:58,990 INFO Initializing Norma with tipo_atto: codice civile, data: None, numero_atto: None, url: None
+2024-07-26 20:55:58,990 INFO Norma initialized: codice civile
+2024-07-26 20:55:58,991 INFO Initializing Norma with tipo_atto: codice civile, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 20:55:58,991 INFO Norma initialized: codice civile art. 1
+2024-07-26 20:55:58,991 INFO NormaVisitata initialized: codice civile art. 1
+2024-07-26 20:55:58,992 INFO Getting URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art1!vig=
+2024-07-26 20:55:58,992 INFO Fetching HTML content from URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art1!vig=
+2024-07-26 20:56:01,237 INFO HTML content fetched successfully
+2024-07-26 20:56:01,239 INFO 127.0.0.1 - - [26/Jul/2024 20:56:01] "POST /scrape HTTP/1.1" 200 -
+2024-07-26 20:56:01,240 INFO Initializing Norma with tipo_atto: codice civile, data: None, numero_atto: None, url: None
+2024-07-26 20:56:01,240 INFO Normalizing act type: codice civile, search: True, source: normattiva
+2024-07-26 20:56:01,240 INFO Normalized act type found: codice civile
+2024-07-26 20:56:01,241 INFO Normalizing act type: codice civile, search: False, source: normattiva
+2024-07-26 20:56:01,241 INFO Normalized act type found: codice civile
+2024-07-26 20:56:01,241 INFO Starting generate_urn with act_type: codice civile, date: None, act_number: None, article: None, extension: None, version: None, version_date: None, urn_flag: False
+2024-07-26 20:56:01,242 INFO Found URN in codici_urn: regio.decreto:1942-03-16;262:2
+2024-07-26 20:56:01,242 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 20:56:01,242 INFO Norma initialized: codice civile
+2024-07-26 20:56:01,243 INFO Starting generate_urn with act_type: codice civile, date: , act_number: , article: 1, extension: None, version: vigente, version_date: , urn_flag: True
+2024-07-26 20:56:01,243 INFO Found URN in codici_urn: regio.decreto:1942-03-16;262:2
+2024-07-26 20:56:01,243 INFO Article part of URN: regio.decreto:1942-03-16;262:2~art1
+2024-07-26 20:56:01,244 INFO Version part of URN: regio.decreto:1942-03-16;262:2~art1!vig=
+2024-07-26 20:56:01,244 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art1!vig=
+2024-07-26 20:56:04,032 INFO Initializing Norma with tipo_atto: codice civile, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 20:56:04,032 INFO Norma initialized: codice civile art. 1
+2024-07-26 20:56:04,032 INFO NormaVisitata initialized: codice civile art. 1
+2024-07-26 20:57:21,488 INFO Initializing Norma with tipo_atto: codice civile, data: None, numero_atto: None, url: None
+2024-07-26 20:57:21,488 INFO Norma initialized: codice civile
+2024-07-26 20:57:21,488 INFO Initializing Norma with tipo_atto: codice civile, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 20:57:21,488 INFO Norma initialized: codice civile art. 1
+2024-07-26 20:57:21,488 INFO NormaVisitata initialized: codice civile art. 1
+2024-07-26 20:57:21,489 INFO Getting URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art1!vig=
+2024-07-26 20:57:21,489 INFO Fetching HTML content from URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art1!vig=
+2024-07-26 20:57:23,654 INFO HTML content fetched successfully
+2024-07-26 20:57:23,655 INFO 127.0.0.1 - - [26/Jul/2024 20:57:23] "POST /scrape HTTP/1.1" 200 -
+2024-07-26 20:57:23,656 INFO Initializing Norma with tipo_atto: codice civile, data: None, numero_atto: None, url: None
+2024-07-26 20:57:23,657 INFO Normalizing act type: codice civile, search: True, source: normattiva
+2024-07-26 20:57:23,657 INFO Normalized act type found: codice civile
+2024-07-26 20:57:23,657 INFO Normalizing act type: codice civile, search: False, source: normattiva
+2024-07-26 20:57:23,658 INFO Normalized act type found: codice civile
+2024-07-26 20:57:23,658 INFO Starting generate_urn with act_type: codice civile, date: None, act_number: None, article: None, extension: None, version: None, version_date: None, urn_flag: False
+2024-07-26 20:57:23,659 INFO Found URN in codici_urn: regio.decreto:1942-03-16;262:2
+2024-07-26 20:57:23,659 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 20:57:23,659 INFO Norma initialized: codice civile
+2024-07-26 20:57:23,660 INFO Starting generate_urn with act_type: codice civile, date: , act_number: , article: 1, extension: None, version: vigente, version_date: , urn_flag: True
+2024-07-26 20:57:23,660 INFO Found URN in codici_urn: regio.decreto:1942-03-16;262:2
+2024-07-26 20:57:23,660 INFO Article part of URN: regio.decreto:1942-03-16;262:2~art1
+2024-07-26 20:57:23,660 INFO Version part of URN: regio.decreto:1942-03-16;262:2~art1!vig=
+2024-07-26 20:57:23,661 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art1!vig=
+2024-07-26 20:57:26,635 INFO Initializing Norma with tipo_atto: codice civile, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 20:57:26,636 INFO Norma initialized: codice civile art. 1
+2024-07-26 20:57:26,636 INFO NormaVisitata initialized: codice civile art. 1
+2024-07-26 20:59:26,695 INFO Initializing Norma with tipo_atto: codice civile, data: None, numero_atto: None, url: None
+2024-07-26 20:59:26,695 INFO Norma initialized: codice civile
+2024-07-26 20:59:26,695 INFO Initializing Norma with tipo_atto: codice civile, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 20:59:26,695 INFO Norma initialized: codice civile art. 1
+2024-07-26 20:59:26,695 INFO NormaVisitata initialized: codice civile art. 1
+2024-07-26 20:59:26,695 INFO Getting URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art1!vig=
+2024-07-26 20:59:26,695 INFO Fetching HTML content from URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art1!vig=
+2024-07-26 20:59:28,973 INFO HTML content fetched successfully
+2024-07-26 20:59:28,975 INFO 127.0.0.1 - - [26/Jul/2024 20:59:28] "POST /scrape HTTP/1.1" 200 -
+2024-07-26 20:59:28,975 INFO Initializing Norma with tipo_atto: codice civile, data: None, numero_atto: None, url: None
+2024-07-26 20:59:28,975 INFO Normalizing act type: codice civile, search: True, source: normattiva
+2024-07-26 20:59:28,975 INFO Normalized act type found: codice civile
+2024-07-26 20:59:28,977 INFO Normalizing act type: codice civile, search: False, source: normattiva
+2024-07-26 20:59:28,977 INFO Normalized act type found: codice civile
+2024-07-26 20:59:28,977 INFO Starting generate_urn with act_type: codice civile, date: None, act_number: None, article: None, extension: None, version: None, version_date: None, urn_flag: False
+2024-07-26 20:59:28,978 INFO Found URN in codici_urn: regio.decreto:1942-03-16;262:2
+2024-07-26 20:59:28,978 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 20:59:28,978 INFO Norma initialized: codice civile
+2024-07-26 20:59:28,978 INFO Starting generate_urn with act_type: codice civile, date: , act_number: , article: 1, extension: None, version: vigente, version_date: , urn_flag: True
+2024-07-26 20:59:28,978 INFO Found URN in codici_urn: regio.decreto:1942-03-16;262:2
+2024-07-26 20:59:28,979 INFO Article part of URN: regio.decreto:1942-03-16;262:2~art1
+2024-07-26 20:59:28,979 INFO Version part of URN: regio.decreto:1942-03-16;262:2~art1!vig=
+2024-07-26 20:59:28,979 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art1!vig=
+2024-07-26 20:59:31,552 INFO Initializing Norma with tipo_atto: codice civile, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 20:59:31,552 INFO Norma initialized: codice civile art. 1
+2024-07-26 20:59:31,553 INFO NormaVisitata initialized: codice civile art. 1
+2024-07-26 21:01:04,289 INFO Initializing Norma with tipo_atto: codice civile, data: None, numero_atto: None, url: None
+2024-07-26 21:01:04,289 INFO Norma initialized: codice civile
+2024-07-26 21:01:04,289 INFO Initializing Norma with tipo_atto: codice civile, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 21:01:04,289 INFO Norma initialized: codice civile art. 1
+2024-07-26 21:01:04,289 INFO NormaVisitata initialized: codice civile art. 1
+2024-07-26 21:01:04,289 INFO Getting URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art1!vig=
+2024-07-26 21:01:04,290 INFO Fetching HTML content from URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art1!vig=
+2024-07-26 21:01:06,827 INFO HTML content fetched successfully
+2024-07-26 21:01:06,829 INFO 127.0.0.1 - - [26/Jul/2024 21:01:06] "POST /scrape HTTP/1.1" 200 -
+2024-07-26 21:01:06,830 INFO Initializing Norma with tipo_atto: codice civile, data: None, numero_atto: None, url: None
+2024-07-26 21:01:06,830 INFO Normalizing act type: codice civile, search: True, source: normattiva
+2024-07-26 21:01:06,831 INFO Normalized act type found: codice civile
+2024-07-26 21:01:06,831 INFO Normalizing act type: codice civile, search: False, source: normattiva
+2024-07-26 21:01:06,831 INFO Normalized act type found: codice civile
+2024-07-26 21:01:06,832 INFO Starting generate_urn with act_type: codice civile, date: None, act_number: None, article: None, extension: None, version: None, version_date: None, urn_flag: False
+2024-07-26 21:01:06,832 INFO Found URN in codici_urn: regio.decreto:1942-03-16;262:2
+2024-07-26 21:01:06,832 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 21:01:06,832 INFO Norma initialized: codice civile
+2024-07-26 21:01:06,832 INFO Starting generate_urn with act_type: codice civile, date: , act_number: , article: 1, extension: None, version: vigente, version_date: , urn_flag: True
+2024-07-26 21:01:06,832 INFO Found URN in codici_urn: regio.decreto:1942-03-16;262:2
+2024-07-26 21:01:06,833 INFO Article part of URN: regio.decreto:1942-03-16;262:2~art1
+2024-07-26 21:01:06,833 INFO Version part of URN: regio.decreto:1942-03-16;262:2~art1!vig=
+2024-07-26 21:01:06,833 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art1!vig=
+2024-07-26 21:01:09,731 INFO Initializing Norma with tipo_atto: codice civile, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 21:01:09,732 INFO Norma initialized: codice civile art. 1
+2024-07-26 21:01:09,733 INFO NormaVisitata initialized: codice civile art. 1
+2024-07-26 21:02:40,477 INFO Initializing Norma with tipo_atto: codice civile, data: None, numero_atto: None, url: None
+2024-07-26 21:02:40,478 INFO Norma initialized: codice civile
+2024-07-26 21:02:40,478 INFO Initializing Norma with tipo_atto: codice civile, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 21:02:40,478 INFO Norma initialized: codice civile art. 1
+2024-07-26 21:02:40,479 INFO NormaVisitata initialized: codice civile art. 1
+2024-07-26 21:02:40,479 INFO Getting URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art1!vig=
+2024-07-26 21:02:40,479 INFO Fetching HTML content from URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art1!vig=
+2024-07-26 21:02:42,936 INFO HTML content fetched successfully
+2024-07-26 21:02:42,939 INFO 127.0.0.1 - - [26/Jul/2024 21:02:42] "POST /scrape HTTP/1.1" 200 -
+2024-07-26 21:02:42,940 INFO Initializing Norma with tipo_atto: codice civile, data: None, numero_atto: None, url: None
+2024-07-26 21:02:42,940 INFO Normalizing act type: codice civile, search: True, source: normattiva
+2024-07-26 21:02:42,940 INFO Normalized act type found: codice civile
+2024-07-26 21:02:42,941 INFO Normalizing act type: codice civile, search: False, source: normattiva
+2024-07-26 21:02:42,941 INFO Normalized act type found: codice civile
+2024-07-26 21:02:42,941 INFO Starting generate_urn with act_type: codice civile, date: None, act_number: None, article: None, extension: None, version: None, version_date: None, urn_flag: False
+2024-07-26 21:02:42,942 INFO Found URN in codici_urn: regio.decreto:1942-03-16;262:2
+2024-07-26 21:02:42,942 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 21:02:42,943 INFO Norma initialized: codice civile
+2024-07-26 21:02:42,943 INFO Starting generate_urn with act_type: codice civile, date: , act_number: , article: 1, extension: None, version: vigente, version_date: , urn_flag: True
+2024-07-26 21:02:42,943 INFO Found URN in codici_urn: regio.decreto:1942-03-16;262:2
+2024-07-26 21:02:42,943 INFO Article part of URN: regio.decreto:1942-03-16;262:2~art1
+2024-07-26 21:02:42,943 INFO Version part of URN: regio.decreto:1942-03-16;262:2~art1!vig=
+2024-07-26 21:02:42,943 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art1!vig=
+2024-07-26 21:02:45,954 INFO Initializing Norma with tipo_atto: codice civile, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 21:02:45,954 INFO Norma initialized: codice civile art. 1
+2024-07-26 21:02:45,955 INFO NormaVisitata initialized: codice civile art. 1
+2024-07-26 21:03:13,648 INFO Initializing Norma with tipo_atto: codice civile, data: None, numero_atto: None, url: None
+2024-07-26 21:03:13,648 INFO Norma initialized: codice civile
+2024-07-26 21:03:13,649 INFO Initializing Norma with tipo_atto: codice civile, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 21:03:13,649 INFO Norma initialized: codice civile art. 1
+2024-07-26 21:03:13,649 INFO NormaVisitata initialized: codice civile art. 1
+2024-07-26 21:03:13,650 INFO Getting URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art1!vig=
+2024-07-26 21:03:13,650 INFO Fetching HTML content from URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art1!vig=
+2024-07-26 21:03:16,051 INFO HTML content fetched successfully
+2024-07-26 21:03:16,052 INFO 127.0.0.1 - - [26/Jul/2024 21:03:16] "POST /scrape HTTP/1.1" 200 -
+2024-07-26 21:03:16,053 INFO Initializing Norma with tipo_atto: codice civile, data: None, numero_atto: None, url: None
+2024-07-26 21:03:16,053 INFO Normalizing act type: codice civile, search: True, source: normattiva
+2024-07-26 21:03:16,054 INFO Normalized act type found: codice civile
+2024-07-26 21:03:16,054 INFO Normalizing act type: codice civile, search: False, source: normattiva
+2024-07-26 21:03:16,055 INFO Normalized act type found: codice civile
+2024-07-26 21:03:16,055 INFO Starting generate_urn with act_type: codice civile, date: None, act_number: None, article: None, extension: None, version: None, version_date: None, urn_flag: False
+2024-07-26 21:03:16,056 INFO Found URN in codici_urn: regio.decreto:1942-03-16;262:2
+2024-07-26 21:03:16,056 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 21:03:16,056 INFO Norma initialized: codice civile
+2024-07-26 21:03:16,056 INFO Starting generate_urn with act_type: codice civile, date: , act_number: , article: 1, extension: None, version: vigente, version_date: , urn_flag: True
+2024-07-26 21:03:16,056 INFO Found URN in codici_urn: regio.decreto:1942-03-16;262:2
+2024-07-26 21:03:16,057 INFO Article part of URN: regio.decreto:1942-03-16;262:2~art1
+2024-07-26 21:03:16,057 INFO Version part of URN: regio.decreto:1942-03-16;262:2~art1!vig=
+2024-07-26 21:03:16,057 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art1!vig=
+2024-07-26 21:03:18,721 INFO Initializing Norma with tipo_atto: codice civile, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 21:03:18,721 INFO Norma initialized: codice civile art. 1
+2024-07-26 21:03:18,721 INFO NormaVisitata initialized: codice civile art. 1
+2024-07-26 21:06:15,469 INFO Initializing Norma with tipo_atto: codice civile, data: None, numero_atto: None, url: None
+2024-07-26 21:06:15,469 INFO Norma initialized: codice civile
+2024-07-26 21:06:15,469 INFO Starting generate_urn with act_type: codice civile, date: , act_number: , article: 2300, extension: None, version: vigente, version_date: None, urn_flag: True
+2024-07-26 21:06:15,469 INFO Found URN in codici_urn: regio.decreto:1942-03-16;262:2
+2024-07-26 21:06:15,470 INFO Article part of URN: regio.decreto:1942-03-16;262:2~art2300
+2024-07-26 21:06:15,470 INFO Version part of URN: regio.decreto:1942-03-16;262:2~art2300!vig=
+2024-07-26 21:06:15,470 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art2300!vig=
+2024-07-26 21:06:15,470 INFO Initializing Norma with tipo_atto: codice civile, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 21:06:15,470 INFO Norma initialized: codice civile art. 2300
+2024-07-26 21:06:15,470 INFO NormaVisitata initialized: codice civile art. 2300
+2024-07-26 21:06:15,471 INFO Getting URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art2300!vig=
+2024-07-26 21:06:15,471 INFO Fetching HTML content from URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art2300!vig=
+2024-07-26 21:06:17,695 INFO HTML content fetched successfully
+2024-07-26 21:06:17,695 INFO Extracting article from HTML. Comma: None
+2024-07-26 21:06:17,976 INFO Parsed HTML with BeautifulSoup
+2024-07-26 21:06:17,988 INFO Found body of the document
+2024-07-26 21:06:17,990 INFO No comma specified, returning full body text
+2024-07-26 21:06:17,990 INFO 127.0.0.1 - - [26/Jul/2024 21:06:17] "POST /scrape HTTP/1.1" 200 -
+2024-07-26 21:06:17,990 INFO Initializing Norma with tipo_atto: codice civile, data: None, numero_atto: None, url: None
+2024-07-26 21:06:17,990 INFO Normalizing act type: codice civile, search: True, source: normattiva
+2024-07-26 21:06:17,991 INFO Normalized act type found: codice civile
+2024-07-26 21:06:17,991 INFO Normalizing act type: codice civile, search: False, source: normattiva
+2024-07-26 21:06:17,991 INFO Normalized act type found: codice civile
+2024-07-26 21:06:17,991 INFO Starting generate_urn with act_type: codice civile, date: None, act_number: None, article: None, extension: None, version: None, version_date: None, urn_flag: False
+2024-07-26 21:06:17,991 INFO Found URN in codici_urn: regio.decreto:1942-03-16;262:2
+2024-07-26 21:06:17,992 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 21:06:17,992 INFO Norma initialized: codice civile
+2024-07-26 21:06:17,992 INFO Starting generate_urn with act_type: codice civile, date: , act_number: , article: 2300, extension: None, version: vigente, version_date: , urn_flag: True
+2024-07-26 21:06:17,992 INFO Found URN in codici_urn: regio.decreto:1942-03-16;262:2
+2024-07-26 21:06:17,992 INFO Article part of URN: regio.decreto:1942-03-16;262:2~art2300
+2024-07-26 21:06:17,992 INFO Version part of URN: regio.decreto:1942-03-16;262:2~art2300!vig=
+2024-07-26 21:06:17,993 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art2300!vig=
+2024-07-26 21:06:20,437 INFO Initializing Norma with tipo_atto: codice civile, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 21:06:20,437 INFO Norma initialized: codice civile art. 2300
+2024-07-26 21:06:20,437 INFO NormaVisitata initialized: codice civile art. 2300
+2024-07-26 21:07:52,129 INFO Initializing Norma with tipo_atto: codice civile, data: None, numero_atto: None, url: None
+2024-07-26 21:07:52,130 INFO Norma initialized: codice civile
+2024-07-26 21:07:52,130 INFO Initializing Norma with tipo_atto: codice civile, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 21:07:52,130 INFO Norma initialized: codice civile art. 1
+2024-07-26 21:07:52,130 INFO NormaVisitata initialized: codice civile art. 1
+2024-07-26 21:07:52,130 INFO Getting URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art1!vig=
+2024-07-26 21:07:52,130 INFO Fetching HTML content from URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art1!vig=
+2024-07-26 21:07:54,294 INFO HTML content fetched successfully
+2024-07-26 21:07:54,295 INFO 127.0.0.1 - - [26/Jul/2024 21:07:54] "POST /scrape HTTP/1.1" 200 -
+2024-07-26 21:07:54,296 INFO Initializing Norma with tipo_atto: codice civile, data: None, numero_atto: None, url: None
+2024-07-26 21:07:54,297 INFO Normalizing act type: codice civile, search: True, source: normattiva
+2024-07-26 21:07:54,297 INFO Normalized act type found: codice civile
+2024-07-26 21:07:54,297 INFO Normalizing act type: codice civile, search: False, source: normattiva
+2024-07-26 21:07:54,298 INFO Normalized act type found: codice civile
+2024-07-26 21:07:54,298 INFO Starting generate_urn with act_type: codice civile, date: None, act_number: None, article: None, extension: None, version: None, version_date: None, urn_flag: False
+2024-07-26 21:07:54,298 INFO Found URN in codici_urn: regio.decreto:1942-03-16;262:2
+2024-07-26 21:07:54,299 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 21:07:54,299 INFO Norma initialized: codice civile
+2024-07-26 21:07:54,299 INFO Starting generate_urn with act_type: codice civile, date: , act_number: , article: 1, extension: None, version: vigente, version_date: , urn_flag: True
+2024-07-26 21:07:54,299 INFO Found URN in codici_urn: regio.decreto:1942-03-16;262:2
+2024-07-26 21:07:54,300 INFO Article part of URN: regio.decreto:1942-03-16;262:2~art1
+2024-07-26 21:07:54,300 INFO Version part of URN: regio.decreto:1942-03-16;262:2~art1!vig=
+2024-07-26 21:07:54,300 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art1!vig=
+2024-07-26 21:07:57,043 INFO Initializing Norma with tipo_atto: codice civile, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 21:07:57,043 INFO Norma initialized: codice civile art. 1
+2024-07-26 21:07:57,044 INFO NormaVisitata initialized: codice civile art. 1
+2024-07-26 21:08:24,875 INFO Initializing Norma with tipo_atto: codice civile, data: None, numero_atto: None, url: None
+2024-07-26 21:08:24,875 INFO Norma initialized: codice civile
+2024-07-26 21:08:24,875 INFO Starting generate_urn with act_type: codice civile, date: , act_number: , article: 405, extension: None, version: vigente, version_date: None, urn_flag: True
+2024-07-26 21:08:24,876 INFO Found URN in codici_urn: regio.decreto:1942-03-16;262:2
+2024-07-26 21:08:24,876 INFO Article part of URN: regio.decreto:1942-03-16;262:2~art405
+2024-07-26 21:08:24,876 INFO Version part of URN: regio.decreto:1942-03-16;262:2~art405!vig=
+2024-07-26 21:08:24,876 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art405!vig=
+2024-07-26 21:08:24,876 INFO Initializing Norma with tipo_atto: codice civile, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 21:08:24,876 INFO Norma initialized: codice civile art. 405
+2024-07-26 21:08:24,877 INFO NormaVisitata initialized: codice civile art. 405
+2024-07-26 21:08:24,877 INFO Getting URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art405!vig=
+2024-07-26 21:08:24,877 INFO Fetching HTML content from URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art405!vig=
+2024-07-26 21:08:27,345 INFO HTML content fetched successfully
+2024-07-26 21:08:27,346 INFO Extracting article from HTML. Comma: None
+2024-07-26 21:08:27,673 INFO Parsed HTML with BeautifulSoup
+2024-07-26 21:08:27,686 INFO Found body of the document
+2024-07-26 21:08:27,686 INFO No comma specified, returning full body text
+2024-07-26 21:08:27,687 INFO 127.0.0.1 - - [26/Jul/2024 21:08:27] "POST /scrape HTTP/1.1" 200 -
+2024-07-26 21:08:27,687 INFO Initializing Norma with tipo_atto: codice civile, data: None, numero_atto: None, url: None
+2024-07-26 21:08:27,688 INFO Norma initialized: codice civile
+2024-07-26 21:08:27,688 INFO Starting generate_urn with act_type: codice civile, date: , act_number: , article: 405, extension: None, version: vigente, version_date: , urn_flag: True
+2024-07-26 21:08:27,689 INFO Found URN in codici_urn: regio.decreto:1942-03-16;262:2
+2024-07-26 21:08:27,689 INFO Article part of URN: regio.decreto:1942-03-16;262:2~art405
+2024-07-26 21:08:27,689 INFO Version part of URN: regio.decreto:1942-03-16;262:2~art405!vig=
+2024-07-26 21:08:27,690 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art405!vig=
+2024-07-26 21:08:30,338 INFO Initializing Norma with tipo_atto: codice civile, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 21:08:30,338 INFO Norma initialized: codice civile art. 405
+2024-07-26 21:08:30,338 INFO NormaVisitata initialized: codice civile art. 405
+2024-07-26 21:10:37,491 INFO Initializing Norma with tipo_atto: codice civile, data: None, numero_atto: None, url: None
+2024-07-26 21:10:37,492 INFO Norma initialized: codice civile
+2024-07-26 21:10:37,493 INFO Starting generate_urn with act_type: codice civile, date: , act_number: , article: 203, extension: None, version: vigente, version_date: None, urn_flag: True
+2024-07-26 21:10:37,493 INFO Found URN in codici_urn: regio.decreto:1942-03-16;262:2
+2024-07-26 21:10:37,493 INFO Article part of URN: regio.decreto:1942-03-16;262:2~art203
+2024-07-26 21:10:37,493 INFO Version part of URN: regio.decreto:1942-03-16;262:2~art203!vig=
+2024-07-26 21:10:37,494 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art203!vig=
+2024-07-26 21:10:37,494 INFO Initializing Norma with tipo_atto: codice civile, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 21:10:37,494 INFO Norma initialized: codice civile art. 203
+2024-07-26 21:10:37,495 INFO NormaVisitata initialized: codice civile art. 203
+2024-07-26 21:10:37,495 INFO Getting URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art203!vig=
+2024-07-26 21:10:37,495 INFO Fetching HTML content from URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art203!vig=
+2024-07-26 21:10:39,845 INFO HTML content fetched successfully
+2024-07-26 21:10:39,846 INFO Extracting article from HTML. Comma: None
+2024-07-26 21:10:40,150 INFO Parsed HTML with BeautifulSoup
+2024-07-26 21:10:40,162 INFO Found body of the document
+2024-07-26 21:10:40,162 INFO No comma specified, returning full body text
+2024-07-26 21:10:40,163 INFO 127.0.0.1 - - [26/Jul/2024 21:10:40] "POST /scrape HTTP/1.1" 200 -
+2024-07-26 21:10:40,164 INFO Initializing Norma with tipo_atto: codice civile, data: None, numero_atto: None, url: None
+2024-07-26 21:10:40,164 INFO Normalizing act type: codice civile, search: True, source: normattiva
+2024-07-26 21:10:40,164 INFO Normalized act type found: codice civile
+2024-07-26 21:10:40,165 INFO Normalizing act type: codice civile, search: False, source: normattiva
+2024-07-26 21:10:40,165 INFO Normalized act type found: codice civile
+2024-07-26 21:10:40,165 INFO Starting generate_urn with act_type: codice civile, date: None, act_number: None, article: None, extension: None, version: None, version_date: None, urn_flag: False
+2024-07-26 21:10:40,166 INFO Found URN in codici_urn: regio.decreto:1942-03-16;262:2
+2024-07-26 21:10:40,166 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 21:10:40,166 INFO Norma initialized: codice civile
+2024-07-26 21:10:40,167 INFO Starting generate_urn with act_type: codice civile, date: , act_number: , article: 203, extension: None, version: vigente, version_date: , urn_flag: True
+2024-07-26 21:10:40,167 INFO Found URN in codici_urn: regio.decreto:1942-03-16;262:2
+2024-07-26 21:10:40,167 INFO Article part of URN: regio.decreto:1942-03-16;262:2~art203
+2024-07-26 21:10:40,168 INFO Version part of URN: regio.decreto:1942-03-16;262:2~art203!vig=
+2024-07-26 21:10:40,168 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art203!vig=
+2024-07-26 21:10:42,971 INFO Initializing Norma with tipo_atto: codice civile, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 21:10:42,972 INFO Norma initialized: codice civile art. 203
+2024-07-26 21:10:42,972 INFO NormaVisitata initialized: codice civile art. 203
+2024-07-26 21:11:12,440 INFO Initializing Norma with tipo_atto: codice civile, data: None, numero_atto: None, url: None
+2024-07-26 21:11:12,441 INFO Norma initialized: codice civile
+2024-07-26 21:11:12,441 INFO Starting generate_urn with act_type: codice civile, date: , act_number: , article: 200, extension: None, version: vigente, version_date: None, urn_flag: True
+2024-07-26 21:11:12,441 INFO Found URN in codici_urn: regio.decreto:1942-03-16;262:2
+2024-07-26 21:11:12,442 INFO Article part of URN: regio.decreto:1942-03-16;262:2~art200
+2024-07-26 21:11:12,442 INFO Version part of URN: regio.decreto:1942-03-16;262:2~art200!vig=
+2024-07-26 21:11:12,442 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art200!vig=
+2024-07-26 21:11:12,443 INFO Initializing Norma with tipo_atto: codice civile, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 21:11:12,443 INFO Norma initialized: codice civile art. 200
+2024-07-26 21:11:12,443 INFO NormaVisitata initialized: codice civile art. 200
+2024-07-26 21:11:12,444 INFO Getting URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art200!vig=
+2024-07-26 21:11:12,444 INFO Fetching HTML content from URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art200!vig=
+2024-07-26 21:11:14,854 INFO HTML content fetched successfully
+2024-07-26 21:11:14,855 INFO Extracting article from HTML. Comma: None
+2024-07-26 21:11:15,162 INFO Parsed HTML with BeautifulSoup
+2024-07-26 21:11:15,174 INFO Found body of the document
+2024-07-26 21:11:15,174 INFO No comma specified, returning full body text
+2024-07-26 21:11:15,175 INFO 127.0.0.1 - - [26/Jul/2024 21:11:15] "POST /scrape HTTP/1.1" 200 -
+2024-07-26 21:11:15,176 INFO Initializing Norma with tipo_atto: codice civile, data: None, numero_atto: None, url: None
+2024-07-26 21:11:15,176 INFO Normalizing act type: codice civile, search: True, source: normattiva
+2024-07-26 21:11:15,176 INFO Normalized act type found: codice civile
+2024-07-26 21:11:15,177 INFO Normalizing act type: codice civile, search: False, source: normattiva
+2024-07-26 21:11:15,177 INFO Normalized act type found: codice civile
+2024-07-26 21:11:15,178 INFO Starting generate_urn with act_type: codice civile, date: None, act_number: None, article: None, extension: None, version: None, version_date: None, urn_flag: False
+2024-07-26 21:11:15,178 INFO Found URN in codici_urn: regio.decreto:1942-03-16;262:2
+2024-07-26 21:11:15,178 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 21:11:15,179 INFO Norma initialized: codice civile
+2024-07-26 21:11:15,179 INFO Starting generate_urn with act_type: codice civile, date: , act_number: , article: 200, extension: None, version: vigente, version_date: , urn_flag: True
+2024-07-26 21:11:15,179 INFO Found URN in codici_urn: regio.decreto:1942-03-16;262:2
+2024-07-26 21:11:15,180 INFO Article part of URN: regio.decreto:1942-03-16;262:2~art200
+2024-07-26 21:11:15,180 INFO Version part of URN: regio.decreto:1942-03-16;262:2~art200!vig=
+2024-07-26 21:11:15,180 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art200!vig=
+2024-07-26 21:11:18,024 INFO Initializing Norma with tipo_atto: codice civile, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 21:11:18,024 INFO Norma initialized: codice civile art. 200
+2024-07-26 21:11:18,025 INFO NormaVisitata initialized: codice civile art. 200
+2024-07-26 21:11:35,162 INFO Initializing Norma with tipo_atto: codice civile, data: None, numero_atto: None, url: None
+2024-07-26 21:11:35,162 INFO Norma initialized: codice civile
+2024-07-26 21:11:35,162 INFO Initializing Norma with tipo_atto: codice civile, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 21:11:35,163 INFO Norma initialized: codice civile art. 200
+2024-07-26 21:11:35,163 INFO NormaVisitata initialized: codice civile art. 200
+2024-07-26 21:11:35,164 INFO Getting URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art200!vig=
+2024-07-26 21:11:35,164 INFO Fetching HTML content from URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art200!vig=
+2024-07-26 21:11:37,725 INFO HTML content fetched successfully
+2024-07-26 21:11:37,726 INFO 127.0.0.1 - - [26/Jul/2024 21:11:37] "POST /scrape HTTP/1.1" 200 -
+2024-07-26 21:11:37,727 INFO Initializing Norma with tipo_atto: codice civile, data: None, numero_atto: None, url: None
+2024-07-26 21:11:37,727 INFO Normalizing act type: codice civile, search: True, source: normattiva
+2024-07-26 21:11:37,728 INFO Normalized act type found: codice civile
+2024-07-26 21:11:37,728 INFO Normalizing act type: codice civile, search: False, source: normattiva
+2024-07-26 21:11:37,729 INFO Normalized act type found: codice civile
+2024-07-26 21:11:37,729 INFO Starting generate_urn with act_type: codice civile, date: None, act_number: None, article: None, extension: None, version: None, version_date: None, urn_flag: False
+2024-07-26 21:11:37,729 INFO Found URN in codici_urn: regio.decreto:1942-03-16;262:2
+2024-07-26 21:11:37,730 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 21:11:37,730 INFO Norma initialized: codice civile
+2024-07-26 21:11:37,730 INFO Starting generate_urn with act_type: codice civile, date: , act_number: , article: 200, extension: None, version: vigente, version_date: , urn_flag: True
+2024-07-26 21:11:37,730 INFO Found URN in codici_urn: regio.decreto:1942-03-16;262:2
+2024-07-26 21:11:37,731 INFO Article part of URN: regio.decreto:1942-03-16;262:2~art200
+2024-07-26 21:11:37,731 INFO Version part of URN: regio.decreto:1942-03-16;262:2~art200!vig=
+2024-07-26 21:11:37,731 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art200!vig=
+2024-07-26 21:11:40,741 INFO Initializing Norma with tipo_atto: codice civile, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 21:11:40,741 INFO Norma initialized: codice civile art. 200
+2024-07-26 21:11:40,741 INFO NormaVisitata initialized: codice civile art. 200
+2024-07-26 21:11:40,744 INFO Initializing Norma with tipo_atto: codice civile, data: , numero_atto: , url: None
+2024-07-26 21:11:40,745 INFO Starting generate_urn with act_type: codice civile, date: , act_number: , article: None, extension: None, version: None, version_date: None, urn_flag: False
+2024-07-26 21:11:40,745 INFO Found URN in codici_urn: regio.decreto:1942-03-16;262:2
+2024-07-26 21:11:40,745 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 21:11:40,745 INFO Norma initialized: codice civile
+2024-07-26 21:11:40,746 INFO Initializing Norma with tipo_atto: codice civile, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 21:11:40,746 INFO Norma initialized: codice civile art. 200
+2024-07-26 21:11:40,746 INFO NormaVisitata initialized: codice civile art. 200
+2024-07-26 21:11:40,747 INFO Getting URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art200!vig=
+2024-07-26 21:11:40,747 INFO Fetching HTML content from URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art200!vig=
+2024-07-26 21:11:43,323 INFO HTML content fetched successfully
+2024-07-26 21:11:43,325 INFO 127.0.0.1 - - [26/Jul/2024 21:11:43] "POST /scrape HTTP/1.1" 200 -
+2024-07-26 21:11:49,786 INFO Initializing Norma with tipo_atto: codice civile, data: , numero_atto: , url: None
+2024-07-26 21:11:49,786 INFO Norma initialized: codice civile
+2024-07-26 21:11:49,786 INFO Starting generate_urn with act_type: codice civile, date: , act_number: , article: 201, extension: None, version: vigente, version_date: None, urn_flag: True
+2024-07-26 21:11:49,787 INFO Found URN in codici_urn: regio.decreto:1942-03-16;262:2
+2024-07-26 21:11:49,787 INFO Article part of URN: regio.decreto:1942-03-16;262:2~art201
+2024-07-26 21:11:49,787 INFO Version part of URN: regio.decreto:1942-03-16;262:2~art201!vig=
+2024-07-26 21:11:49,787 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art201!vig=
+2024-07-26 21:11:49,788 INFO Initializing Norma with tipo_atto: codice civile, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 21:11:49,788 INFO Norma initialized: codice civile art. 201
+2024-07-26 21:11:49,788 INFO NormaVisitata initialized: codice civile art. 201
+2024-07-26 21:11:49,788 INFO Getting URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art201!vig=
+2024-07-26 21:11:49,789 INFO Fetching HTML content from URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art201!vig=
+2024-07-26 21:11:52,408 INFO HTML content fetched successfully
+2024-07-26 21:11:52,409 INFO Extracting article from HTML. Comma: None
+2024-07-26 21:11:52,693 INFO Parsed HTML with BeautifulSoup
+2024-07-26 21:11:52,704 INFO Found body of the document
+2024-07-26 21:11:52,705 INFO No comma specified, returning full body text
+2024-07-26 21:11:52,705 INFO 127.0.0.1 - - [26/Jul/2024 21:11:52] "POST /scrape HTTP/1.1" 200 -
+2024-07-26 21:11:55,531 INFO Initializing Norma with tipo_atto: codice civile, data: , numero_atto: , url: None
+2024-07-26 21:11:55,531 INFO Norma initialized: codice civile
+2024-07-26 21:11:55,531 INFO Starting generate_urn with act_type: codice civile, date: , act_number: , article: 202, extension: None, version: vigente, version_date: None, urn_flag: True
+2024-07-26 21:11:55,532 INFO Found URN in codici_urn: regio.decreto:1942-03-16;262:2
+2024-07-26 21:11:55,532 INFO Article part of URN: regio.decreto:1942-03-16;262:2~art202
+2024-07-26 21:11:55,532 INFO Version part of URN: regio.decreto:1942-03-16;262:2~art202!vig=
+2024-07-26 21:11:55,533 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art202!vig=
+2024-07-26 21:11:55,533 INFO Initializing Norma with tipo_atto: codice civile, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 21:11:55,533 INFO Norma initialized: codice civile art. 202
+2024-07-26 21:11:55,534 INFO NormaVisitata initialized: codice civile art. 202
+2024-07-26 21:11:55,534 INFO Getting URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art202!vig=
+2024-07-26 21:11:55,534 INFO Fetching HTML content from URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art202!vig=
+2024-07-26 21:11:57,903 INFO HTML content fetched successfully
+2024-07-26 21:11:57,904 INFO Extracting article from HTML. Comma: None
+2024-07-26 21:11:58,217 INFO Parsed HTML with BeautifulSoup
+2024-07-26 21:11:58,229 INFO Found body of the document
+2024-07-26 21:11:58,230 INFO No comma specified, returning full body text
+2024-07-26 21:11:58,230 INFO 127.0.0.1 - - [26/Jul/2024 21:11:58] "POST /scrape HTTP/1.1" 200 -
+2024-07-26 21:13:51,818 INFO Initializing Norma with tipo_atto: codice civile, data: None, numero_atto: None, url: None
+2024-07-26 21:13:51,818 INFO Norma initialized: codice civile
+2024-07-26 21:13:51,819 INFO Initializing Norma with tipo_atto: codice civile, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 21:13:51,819 INFO Norma initialized: codice civile art. 200
+2024-07-26 21:13:51,819 INFO NormaVisitata initialized: codice civile art. 200
+2024-07-26 21:13:51,820 INFO Getting URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art200!vig=
+2024-07-26 21:13:51,820 INFO Fetching HTML content from URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art200!vig=
+2024-07-26 21:13:54,194 INFO HTML content fetched successfully
+2024-07-26 21:13:54,195 INFO 127.0.0.1 - - [26/Jul/2024 21:13:54] "POST /scrape HTTP/1.1" 200 -
+2024-07-26 21:13:54,196 INFO Initializing Norma with tipo_atto: codice civile, data: None, numero_atto: None, url: None
+2024-07-26 21:13:54,197 INFO Normalizing act type: codice civile, search: True, source: normattiva
+2024-07-26 21:13:54,197 INFO Normalized act type found: codice civile
+2024-07-26 21:13:54,198 INFO Normalizing act type: codice civile, search: False, source: normattiva
+2024-07-26 21:13:54,198 INFO Normalized act type found: codice civile
+2024-07-26 21:13:54,198 INFO Starting generate_urn with act_type: codice civile, date: None, act_number: None, article: None, extension: None, version: None, version_date: None, urn_flag: False
+2024-07-26 21:13:54,199 INFO Found URN in codici_urn: regio.decreto:1942-03-16;262:2
+2024-07-26 21:13:54,199 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 21:13:54,199 INFO Norma initialized: codice civile
+2024-07-26 21:13:54,200 INFO Starting generate_urn with act_type: codice civile, date: , act_number: , article: 200, extension: None, version: vigente, version_date: , urn_flag: True
+2024-07-26 21:13:54,200 INFO Found URN in codici_urn: regio.decreto:1942-03-16;262:2
+2024-07-26 21:13:54,200 INFO Article part of URN: regio.decreto:1942-03-16;262:2~art200
+2024-07-26 21:13:54,201 INFO Version part of URN: regio.decreto:1942-03-16;262:2~art200!vig=
+2024-07-26 21:13:54,201 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art200!vig=
+2024-07-26 21:13:56,587 INFO Initializing Norma with tipo_atto: codice civile, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 21:13:56,587 INFO Norma initialized: codice civile art. 200
+2024-07-26 21:13:56,588 INFO NormaVisitata initialized: codice civile art. 200
+2024-07-26 21:13:56,590 INFO Initializing Norma with tipo_atto: codice civile, data: , numero_atto: , url: None
+2024-07-26 21:13:56,590 INFO Norma initialized: codice civile
+2024-07-26 21:13:56,591 INFO Initializing Norma with tipo_atto: codice civile, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 21:13:56,591 INFO Norma initialized: codice civile art. 200
+2024-07-26 21:13:56,592 INFO NormaVisitata initialized: codice civile art. 200
+2024-07-26 21:13:56,592 INFO Getting URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art200!vig=
+2024-07-26 21:13:56,592 INFO Fetching HTML content from URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art200!vig=
+2024-07-26 21:13:58,754 INFO HTML content fetched successfully
+2024-07-26 21:13:58,756 INFO 127.0.0.1 - - [26/Jul/2024 21:13:58] "POST /scrape HTTP/1.1" 200 -
+2024-07-26 21:16:41,917 INFO Initializing Norma with tipo_atto: codice civile, data: None, numero_atto: None, url: None
+2024-07-26 21:16:41,918 INFO Norma initialized: codice civile
+2024-07-26 21:16:41,918 INFO Initializing Norma with tipo_atto: codice civile, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 21:16:41,918 INFO Norma initialized: codice civile art. 200
+2024-07-26 21:16:41,918 INFO NormaVisitata initialized: codice civile art. 200
+2024-07-26 21:16:41,919 INFO Getting URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art200!vig=
+2024-07-26 21:16:41,919 INFO Fetching HTML content from URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art200!vig=
+2024-07-26 21:16:44,112 INFO HTML content fetched successfully
+2024-07-26 21:16:44,114 INFO 127.0.0.1 - - [26/Jul/2024 21:16:44] "POST /scrape HTTP/1.1" 200 -
+2024-07-26 21:16:44,115 INFO Initializing Norma with tipo_atto: codice civile, data: None, numero_atto: None, url: None
+2024-07-26 21:16:44,115 INFO Normalizing act type: codice civile, search: True, source: normattiva
+2024-07-26 21:16:44,116 INFO Normalized act type found: codice civile
+2024-07-26 21:16:44,116 INFO Normalizing act type: codice civile, search: False, source: normattiva
+2024-07-26 21:16:44,116 INFO Normalized act type found: codice civile
+2024-07-26 21:16:44,117 INFO Starting generate_urn with act_type: codice civile, date: None, act_number: None, article: None, extension: None, version: None, version_date: None, urn_flag: False
+2024-07-26 21:16:44,117 INFO Found URN in codici_urn: regio.decreto:1942-03-16;262:2
+2024-07-26 21:16:44,117 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 21:16:44,118 INFO Norma initialized: codice civile
+2024-07-26 21:16:44,118 INFO Starting generate_urn with act_type: codice civile, date: , act_number: , article: 200, extension: None, version: vigente, version_date: , urn_flag: True
+2024-07-26 21:16:44,118 INFO Found URN in codici_urn: regio.decreto:1942-03-16;262:2
+2024-07-26 21:16:44,118 INFO Article part of URN: regio.decreto:1942-03-16;262:2~art200
+2024-07-26 21:16:44,119 INFO Version part of URN: regio.decreto:1942-03-16;262:2~art200!vig=
+2024-07-26 21:16:44,119 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art200!vig=
+2024-07-26 21:16:46,636 INFO Initializing Norma with tipo_atto: codice civile, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 21:16:46,637 INFO Norma initialized: codice civile art. 200
+2024-07-26 21:16:46,637 INFO NormaVisitata initialized: codice civile art. 200
+2024-07-26 21:16:46,639 INFO Initializing Norma with tipo_atto: codice civile, data: , numero_atto: , url: None
+2024-07-26 21:16:46,639 INFO Norma initialized: codice civile
+2024-07-26 21:16:46,640 INFO Initializing Norma with tipo_atto: codice civile, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2
+2024-07-26 21:16:46,640 INFO Norma initialized: codice civile art. 200
+2024-07-26 21:16:46,641 INFO NormaVisitata initialized: codice civile art. 200
+2024-07-26 21:16:46,641 INFO Getting URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art200!vig=
+2024-07-26 21:16:46,641 INFO Fetching HTML content from URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:regio.decreto:1942-03-16;262:2~art200!vig=
+2024-07-26 21:16:48,743 INFO HTML content fetched successfully
+2024-07-26 21:16:48,745 INFO 127.0.0.1 - - [26/Jul/2024 21:16:48] "POST /scrape HTTP/1.1" 200 -
+2024-07-26 21:17:34,652 INFO Initializing Norma with tipo_atto: costituzione, data: None, numero_atto: None, url: None
+2024-07-26 21:17:34,652 INFO Norma initialized: costituzione
+2024-07-26 21:17:34,652 INFO Starting generate_urn with act_type: costituzione, date: , act_number: , article: 2, extension: None, version: vigente, version_date: None, urn_flag: True
+2024-07-26 21:17:34,652 INFO Found URN in codici_urn: costituzione
+2024-07-26 21:17:34,653 INFO Article part of URN: costituzione~art2
+2024-07-26 21:17:34,653 INFO Version part of URN: costituzione~art2!vig=
+2024-07-26 21:17:34,653 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:costituzione~art2!vig=
+2024-07-26 21:17:34,654 INFO Initializing Norma with tipo_atto: costituzione, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:costituzione
+2024-07-26 21:17:34,654 INFO Norma initialized: costituzione art. 2
+2024-07-26 21:17:34,655 INFO NormaVisitata initialized: costituzione art. 2
+2024-07-26 21:17:34,655 INFO Getting URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:costituzione~art2!vig=
+2024-07-26 21:17:34,655 INFO Fetching HTML content from URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:costituzione~art2!vig=
+2024-07-26 21:17:35,407 INFO HTML content fetched successfully
+2024-07-26 21:17:35,407 INFO Extracting article from HTML. Comma: None
+2024-07-26 21:17:35,436 INFO Parsed HTML with BeautifulSoup
+2024-07-26 21:17:35,437 INFO Found body of the document
+2024-07-26 21:17:35,438 INFO No comma specified, returning full body text
+2024-07-26 21:17:35,438 INFO 127.0.0.1 - - [26/Jul/2024 21:17:35] "POST /scrape HTTP/1.1" 200 -
+2024-07-26 21:17:35,438 INFO Initializing Norma with tipo_atto: costituzione, data: None, numero_atto: None, url: None
+2024-07-26 21:17:35,440 INFO Normalizing act type: costituzione, search: True, source: normattiva
+2024-07-26 21:17:35,440 INFO Normalized act type found: costituzione
+2024-07-26 21:17:35,440 INFO Normalizing act type: costituzione, search: False, source: normattiva
+2024-07-26 21:17:35,440 INFO Normalized act type found: costituzione
+2024-07-26 21:17:35,440 INFO Starting generate_urn with act_type: costituzione, date: None, act_number: None, article: None, extension: None, version: None, version_date: None, urn_flag: False
+2024-07-26 21:17:35,441 INFO Found URN in codici_urn: costituzione
+2024-07-26 21:17:35,441 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:costituzione
+2024-07-26 21:17:35,441 INFO Norma initialized: costituzione
+2024-07-26 21:17:35,442 INFO Starting generate_urn with act_type: costituzione, date: , act_number: , article: 2, extension: None, version: vigente, version_date: , urn_flag: True
+2024-07-26 21:17:35,442 INFO Found URN in codici_urn: costituzione
+2024-07-26 21:17:35,443 INFO Article part of URN: costituzione~art2
+2024-07-26 21:17:35,443 INFO Version part of URN: costituzione~art2!vig=
+2024-07-26 21:17:35,443 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:costituzione~art2!vig=
+2024-07-26 21:17:36,188 INFO Initializing Norma with tipo_atto: costituzione, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:costituzione
+2024-07-26 21:17:36,188 INFO Norma initialized: costituzione art. 2
+2024-07-26 21:17:36,189 INFO NormaVisitata initialized: costituzione art. 2
+2024-07-26 21:17:36,191 INFO Initializing Norma with tipo_atto: costituzione, data: , numero_atto: , url: None
+2024-07-26 21:17:36,191 INFO Starting generate_urn with act_type: costituzione, date: , act_number: , article: None, extension: None, version: None, version_date: None, urn_flag: False
+2024-07-26 21:17:36,192 INFO Found URN in codici_urn: costituzione
+2024-07-26 21:17:36,192 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:costituzione
+2024-07-26 21:17:36,192 INFO Norma initialized: costituzione
+2024-07-26 21:17:36,192 INFO Initializing Norma with tipo_atto: costituzione, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:costituzione
+2024-07-26 21:17:36,193 INFO Norma initialized: costituzione art. 2
+2024-07-26 21:17:36,193 INFO NormaVisitata initialized: costituzione art. 2
+2024-07-26 21:17:36,193 INFO Getting URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:costituzione~art2!vig=
+2024-07-26 21:17:36,194 INFO Fetching HTML content from URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:costituzione~art2!vig=
+2024-07-26 21:17:36,944 INFO HTML content fetched successfully
+2024-07-26 21:17:36,945 INFO 127.0.0.1 - - [26/Jul/2024 21:17:36] "POST /scrape HTTP/1.1" 200 -
+2024-07-26 21:17:42,875 INFO Initializing Norma with tipo_atto: costituzione, data: , numero_atto: , url: None
+2024-07-26 21:17:42,876 INFO Norma initialized: costituzione
+2024-07-26 21:17:42,876 INFO Starting generate_urn with act_type: costituzione, date: , act_number: , article: 3, extension: None, version: vigente, version_date: None, urn_flag: True
+2024-07-26 21:17:42,876 INFO Found URN in codici_urn: costituzione
+2024-07-26 21:17:42,877 INFO Article part of URN: costituzione~art3
+2024-07-26 21:17:42,877 INFO Version part of URN: costituzione~art3!vig=
+2024-07-26 21:17:42,877 INFO Final URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:costituzione~art3!vig=
+2024-07-26 21:17:42,877 INFO Initializing Norma with tipo_atto: costituzione, data: , numero_atto: , url: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:costituzione
+2024-07-26 21:17:42,878 INFO Norma initialized: costituzione art. 3
+2024-07-26 21:17:42,878 INFO NormaVisitata initialized: costituzione art. 3
+2024-07-26 21:17:42,878 INFO Getting URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:costituzione~art3!vig=
+2024-07-26 21:17:42,878 INFO Fetching HTML content from URN: https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:costituzione~art3!vig=
+2024-07-26 21:17:43,639 INFO HTML content fetched successfully
+2024-07-26 21:17:43,640 INFO Extracting article from HTML. Comma: None
+2024-07-26 21:17:43,668 INFO Parsed HTML with BeautifulSoup
+2024-07-26 21:17:43,670 INFO Found body of the document
+2024-07-26 21:17:43,670 INFO No comma specified, returning full body text
+2024-07-26 21:17:43,671 INFO 127.0.0.1 - - [26/Jul/2024 21:17:43] "POST /scrape HTTP/1.1" 200 -

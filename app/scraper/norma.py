@@ -1,7 +1,7 @@
-from tools.urngenerator import generate_urn
-from tools.text_op import normalize_act_type
+from .urngenerator import generate_urn
+from .text_op import normalize_act_type
 from datetime import datetime
-from tools.treextractor import get_tree
+from .treextractor import get_tree
 import logging
 
 # Configure logging
@@ -11,7 +11,7 @@ logging.basicConfig(level=logging.INFO,
                               logging.StreamHandler()])
 
 class Norma:
-    def __init__(self, tipo_atto, data=None, numero_atto=None, url=None, tree=None):
+    def __init__(self, tipo_atto, data=None, numero_atto=None, url=None):
         """
         Initializes a Norma object.
         
@@ -29,7 +29,7 @@ class Norma:
         self.data = data if data else ""
         self.numero_atto = numero_atto if numero_atto else ""
         self.url = url or generate_urn(act_type=self.tipo_atto_urn, date=data, act_number=numero_atto, urn_flag=False)
-        self.tree = tree if tree else get_tree(self.url)
+        
         
         logging.info(f"Norma initialized: {self}")
 
@@ -64,7 +64,7 @@ class Norma:
         }
 
 class NormaVisitata(Norma):
-    def __init__(self, norma, numero_articolo=None, versione=None, data_versione=None, urn=None, timestamp=None):
+    def __init__(self, norma, numero_articolo=None, versione=None, data_versione=None, urn=None, tree=None, timestamp=None):
         """
         Initializes a NormaVisitata object.
         
@@ -81,10 +81,11 @@ class NormaVisitata(Norma):
         self.versione = versione
         self.data_versione = data_versione
         self.urn = urn or generate_urn(norma.tipo_atto_urn, date=norma.data, act_number=norma.numero_atto, article=numero_articolo, version=versione, version_date=data_versione)
+        self.tree = tree if tree else get_tree(self.urn)
         self.timestamp = timestamp if timestamp else datetime.now().isoformat()
 
         # Call the base class initializer
-        super().__init__(tipo_atto=norma.tipo_atto_str, data=norma.data, numero_atto=norma.numero_atto, url=norma.url, tree=norma.tree)
+        super().__init__(tipo_atto=norma.tipo_atto_str, data=norma.data, numero_atto=norma.numero_atto, url=norma.url)
 
         logging.info(f"NormaVisitata initialized: {self}")
 

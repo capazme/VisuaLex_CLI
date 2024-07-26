@@ -15070,3 +15070,11 @@ BROCARDI_SEARCH = {
     'decreto.legislativo': 'D.lgs.',
     'decreto.legge': 'D.L.',
 }
+
+TIPI_ATTI_CON_DATA_E_NUMERO = {
+    "legge", 
+    "decreto legislativo", 
+    "decreto legge", 
+    "regio decreto", 
+    "decreto del presidente della repubblica"
+}

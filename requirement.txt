@@ -1,6 +1,4 @@
-Flask
 requests
-pyperclip
 beautifulsoup4==4.12.3
 bs4==0.0.2
 chromedriver==2.24.1
@@ -13,3 +11,5 @@ websockets==12.0
 pyperclip==1.8.2
 lxml
 Markdown==3.6
+click
+rich

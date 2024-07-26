@@ -7,7 +7,7 @@ from .sys_op import setup_driver, close_driver, drivers
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
-from tools.text_op import estrai_data_da_denominazione
+from .text_op import estrai_data_da_denominazione
 import logging
 
 # Configure logging
@@ -52,6 +52,7 @@ def complete_date(act_type, date, act_number):
         close_driver()
         return f"Errore nel completamento della data, inserisci la data completa: {e}"
 
+@lru_cache(maxsize=MAX_CACHE_SIZE)
 def generate_urn(act_type, date=None, act_number=None, article=None, extension=None, version=None, version_date=None, urn_flag=True):
     """
     Generates the URN for a legal norm.
@@ -124,7 +125,7 @@ def generate_urn(act_type, date=None, act_number=None, article=None, extension=N
     
     return result
 
-
+@lru_cache(maxsize=MAX_CACHE_SIZE)
 def urn_to_filename(urn):
     """
     Converts a URN to a filename.

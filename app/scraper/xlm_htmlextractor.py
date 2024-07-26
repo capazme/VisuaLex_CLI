@@ -73,8 +73,6 @@ def estrai_da_html(atto, comma=None):
         logging.error(f"Errore generico: {e}", exc_info=True)
         return f"Errore generico: {e}"
 
-
-
 @lru_cache(maxsize=MAX_CACHE_SIZE)
 def extract_html_article(norma_visitata):
     """
